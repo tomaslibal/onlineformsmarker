@@ -16,11 +16,17 @@ class reader
     private $data;
     private $dataOk;
     
+    private function filterOutText($string)
+    {
+        preg_match("/([\w]+)/i", $string, $match);
+        return $match[0];
+    }
+    
     public function __construct()
     {
     }
     
-    public function load(string $string)
+    public function load($string)
     {
         $this->data = $string;
     }
@@ -28,12 +34,20 @@ class reader
     public function parse()
     {
         $elements = array();
-        $inputsRE = "/\(input\)([\w]+)/gi";
+        // modifiers i; g (global) modifier for multiple matching is replaced by preg_match_all function usage
+        $inputsRE = "/\(input(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i";
+        
         
         preg_match_all($inputsRE, $this->data, $matches, PREG_SET_ORDER);
         
         foreach($matches as $val) {
-            $elements[] = new input();
+            $tmp = new input();
+            $tmp->label = $val[3];
+            
+            $tmp->id = $this->filterOutText($val[2]);
+            $tmp->inputType = $this->filterOutText($val[1]);
+            
+            $elements[] = $tmp;            
         }
         
         return $elements;
