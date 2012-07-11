@@ -8,6 +8,9 @@
 * @package onlineformsmarker
 * @subpackage runtime
 *
+* @version 0.1.0
+* @author Tom Libal, tomas<at>libal<dot>eu
+*
 * @param string $class Name of the class to look up
 * @return void
 */

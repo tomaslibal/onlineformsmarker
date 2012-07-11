@@ -1,15 +1,31 @@
 <?php
 
 /**
-* form
+* Form class acts as an entry point for interacting with the form rendering 
+* functionality.
 *
 *
 * @package OnlineFormsMarker
 *
-* @version 0.0.0
+* @version 0.1.0
 *
+* // example
+* $testForm = "
+* TEST FORM
+* ++++++++++++++++++++++++++
+*
+* (input)Username
+* (input)Email
+* (input:password)Your password
+* 
+* (button)Register me!
+* ";
+*
+* $myForm = new form();
+* $myForm->read($testForm);
+* echo $myForm;
+* // end of example
 */
-
 class form 
 {
     public $action;

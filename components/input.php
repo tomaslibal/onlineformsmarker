@@ -1,16 +1,30 @@
 <?php
 
+/**
+* Input form element
+*
+* @author Tom Libal, tomas<at>libal<dot>eu
+*/
 class input extends formElement
 {
     public $value;
     public $inputType = 'text';
     
+    /**
+    * Render control
+    *
+    * @return string
+    */
     public function __toString()
     {
         $this->check();
         return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" id=\"{$this->id}\">";
     }
     
+    /**
+    * Does necessary checking before the object is turned into a string
+    *
+    */
     private function check()
     {
         if(empty($this->inputType)) {
@@ -21,10 +35,16 @@ class input extends formElement
         }
     }
     
+    /**
+    * Controls rendering of a label
+    *
+    * @return string
+    */
     private function renderLabel()
     {
         if($this->label) {
     		return "<label for=\"{$this->name}\">{$this->label}</label>";
-    	}
+    	}else {
+            return null;
     }
 }
