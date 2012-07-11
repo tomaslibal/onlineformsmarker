@@ -11,6 +11,8 @@ TEST FORM
 (button)Register me!
 ";
 
+include_once 'classLoader.php';
+
 $myForm = new form();
 $myForm->read($testForm);
 echo $myForm;
