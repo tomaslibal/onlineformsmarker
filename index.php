@@ -11,6 +11,7 @@ TEST FORM
 (button)Register me!
 ";
 
+include_once 'env.php';
 include_once 'classLoader.php';
 
 $myForm = new form();
