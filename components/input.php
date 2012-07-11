@@ -8,7 +8,7 @@ class input extends formElement
     public function __toString()
     {
         $this->check();
-        return "<input type=\"{$this->inputType}\" value=\"{$this->value}\" id=\"{$this->id}\">";
+        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" id=\"{$this->id}\">";
     }
     
     private function check()
@@ -16,6 +16,15 @@ class input extends formElement
         if(empty($this->inputType)) {
             $this->inputType = 'text';
         }
+        if(empty($this->name) && !empty($this->id)) {
+            $this->name = $this->id;
+        }
     }
     
+    private function renderLabel()
+    {
+        if($this->label) {
+    		return "<label for=\"{$this->name}\">{$this->label}</label>";
+    	}
+    }
 }
