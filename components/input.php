@@ -7,7 +7,15 @@ class input extends formElement
     
     public function __toString()
     {
+        $this->check();
         return "<input type=\"{$this->inputType}\" value=\"{$this->value}\" id=\"{$this->id}\">";
+    }
+    
+    private function check()
+    {
+        if(empty($this->inputType)) {
+            $this->inputType = 'text';
+        }
     }
     
 }
