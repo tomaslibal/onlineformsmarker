@@ -72,20 +72,23 @@ class form
         $el->id = $id;
         
         // append the new element to this form
-        $this->$id = $el;
+        $this->elements[$id] = $el;
     }
     
-    /**
-    * Overload function appending a new element to the array of form elements
-    * 
-    * @param string $name Name (ID) of the added element
-    * @param formElement $value Object instance of the added form element
-    */
-    public function __set($name, $value)
-    {
-        $this->debugData[] = "Appending $name to the elements";
-        $this->elements[$name] = $value;
-    }
+    # Not currently used and because mostly the form will be built from a syntax
+    # documents this wont be needed. $this->add() function can be used instead
+    #
+    #    /**
+    #    * Overload function appending a new element to the array of form elements
+    #    * 
+    #    * @param string $name Name (ID) of the added element
+    #    * @param formElement $value Object instance of the added form element
+    #    */
+    #    public function __set($name, $value)
+    #    {
+    #        $this->debugData[] = "Appending $name to the elements";
+    #        $this->elements[$name] = $value;
+    #    }
     
     public function __get($name)
     {
