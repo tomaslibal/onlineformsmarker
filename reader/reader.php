@@ -18,8 +18,11 @@ class reader
     
     private function filterOutText($string)
     {
-        preg_match("/([\w]+)/i", $string, $match);
-        return $match[0];
+        if(preg_match("/([\w]+)/i", $string, $match)) {
+            return $match[0];
+        }else {
+            return null;
+        }  
     }
     
     public function __construct()
