@@ -34,7 +34,14 @@ class form
     public function __toString()
     {
         $this->debugData[] = 'Converting the form into string...';
-        throw new formException("form rendering not yet implemented");        
+        //throw new formException("form rendering not yet implemented");        
+        $html = '<form action="">';
+        foreach($this->elements as $el) {
+            $html .= $el;
+        }
+        $html .= '</form>';
+        
+        return $html;
     }
     
     /**
@@ -76,6 +83,9 @@ class form
     */
     public function read($markup)
     {
+        $reader = new reader();
+        $reader->load($markup);
+        $this->elements = $reader->parse();
     }
         
 }

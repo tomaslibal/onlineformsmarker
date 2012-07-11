@@ -22,11 +22,21 @@ class reader
     
     public function load(string $string)
     {
-        
+        $this->data = $string;
     }
     
     public function parse()
     {
+        $elements = array();
+        $inputsRE = "/\(input\)([\w]+)/gi";
+        
+        preg_match_all($inputsRE, $this->data, $matches, PREG_SET_ORDER);
+        
+        foreach($matches as $val) {
+            $elements[] = new input();
+        }
+        
+        return $elements;
     }
      
     /**
