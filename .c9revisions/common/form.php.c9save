@@ -1,0 +1,2 @@
+{"ts":1342011179240,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1342011232896,"patch":[[{"diffs":[[1,"/**\r\n*\r\n* form\r\n*\r\n*\r\n* @package OnlineFormsMarker\r\n*\r\n* @version 0.0.0\r\n*\r\n*/\r\n\r\nclass form \r\n{\r\n    public function __construct()\r\n    {\r\n    }\r\n    \r\n    public function __toString()\r\n    {\r\n        throw new formException(\"not yet implemented\");        \r\n    }\r\n}"]],"start1":0,"start2":0,"length1":0,"length2":267}]],"length":267,"saved":false}
