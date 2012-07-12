@@ -1,19 +1,25 @@
 OnlineFormsMarker
 =================
 
-Rendering engine for my form markup syntax.
+Rendering engine for my form markup syntax. Takes input in a textual form or
+the methods of the formbuilder can be used to design and compose a form. Renders
+the form as HTML code.
 
 Sample syntax
 -------------
 
 ![Image showing an example of the syntax](http://libal.eu/imghost/ofm1.PNG "Sample syntax")
+Input as text demonstrating the syntax
+
 
 Result
 ------
 
 ![Image showing processed syntax into a HTML code](http://libal.eu/imghost/ofm2.PNG "Processed syntax")
+Result in a web browser running on a local server
 
 (The results differ according to used stylesheets)
+
 
 
 TODOs
