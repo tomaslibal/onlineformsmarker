@@ -9,14 +9,14 @@ Sample syntax
 -------------
 
 ![Image showing an example of the syntax](http://libal.eu/imghost/ofm1.PNG "Sample syntax")
-Input as text demonstrating the syntax
+<br>Input as text demonstrating the syntax
 
 
 Result
 ------
 
 ![Image showing processed syntax into a HTML code](http://libal.eu/imghost/ofm2.PNG "Processed syntax")
-Result in a web browser running on a local server
+<br>Result in a web browser running on a local server
 
 (The results differ according to used stylesheets)
 
