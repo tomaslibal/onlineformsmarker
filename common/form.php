@@ -51,7 +51,7 @@ class form
     {
         $this->debugData[] = 'Converting the form into string...';
         //throw new formException("form rendering not yet implemented");        
-        $html = "<form action=\"{$this->action}\">";
+        $html = "<form action=\"{$this->action}\" enctype=\"{$this->enctype}\">";
         foreach($this->elements as $el) {
             $html .= $el;
         }
