@@ -68,15 +68,25 @@ class reader
         
         // modifiers i; g (global) modifier for multiple matching is replaced by preg_match_all function usage
         $inputsRE = "/\(input(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i";
-        
         preg_match_all($inputsRE, $this->data, $matches, PREG_SET_ORDER);
-        
         foreach($matches as $val) {
             $tmp = new input();
             $tmp->label = $val[3];
             
             $tmp->id = $this->filterOutText($val[2]);
             $tmp->inputType = $this->filterOutText($val[1]);
+            
+            $elements[] = $tmp;            
+        }
+        
+        $buttonsRE = "/\(button(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i";
+        preg_match_all($buttonsRE, $this->data, $matches, PREG_SET_ORDER);
+        foreach($matches as $val) {
+            $tmp = new button();
+            $tmp->value = $val[3];
+            $tmp->type = $this->filterOutText($val[1]);
+            
+            $tmp->id = $this->filterOutText($val[2]);
             
             $elements[] = $tmp;            
         }

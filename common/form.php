@@ -30,7 +30,7 @@ class form
 {
     public $action;
     public $enctype;
-    public $name;
+    public $name; // attribute name depends on the doctype, some doctypes doesn't support this attr.
     public $id;
     
     // Form's elements
@@ -51,7 +51,7 @@ class form
     {
         $this->debugData[] = 'Converting the form into string...';
         //throw new formException("form rendering not yet implemented");        
-        $html = '<form action="">';
+        $html = "<form action=\"{$this->action}\">";
         foreach($this->elements as $el) {
             $html .= $el;
         }
