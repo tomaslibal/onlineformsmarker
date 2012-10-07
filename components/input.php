@@ -46,5 +46,6 @@ class input extends formElement
     		return "<label for=\"{$this->name}\">{$this->label}</label>";
     	}else {
             return null;
+    	}
     }
 }
