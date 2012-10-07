@@ -7,6 +7,7 @@
 */
 class input extends formElement
 {
+    public $name;
     public $value;
     public $inputType = 'text';
     
