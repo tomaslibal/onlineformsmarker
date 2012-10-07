@@ -30,4 +30,4 @@ TODOs
 * Add fieldset and legend support
 * Add selectbox support
 * Add radio and checkbutton support
-* Add action and enctype attributes support
+* Extend the support for action and enctype attributes
