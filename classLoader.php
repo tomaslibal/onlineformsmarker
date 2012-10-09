@@ -18,9 +18,9 @@ function classLoader($class)
 {
     $dirs = array("common", "components", "reader");
     foreach($dirs as $dir) {
-        if(file_exists(".".DS.$dir.DS.$class.'.php')) {
+        if(file_exists(OFMWWWDIR.DS.$dir.DS.$class.'.php')) {
             try{
-                include_once ".".DS.$dir.DS.$class.'.php';
+                include_once OFMWWWDIR.DS.$dir.DS.$class.'.php';
             }catch(Exception $e){
                 echo "Error while trying to load $class in ".$dir.DS.$class.".php";
             }            
