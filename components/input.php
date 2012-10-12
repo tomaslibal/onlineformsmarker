@@ -7,8 +7,8 @@
 */
 class input extends formElement
 {
-    public $name;
     public $value;
+    public $name;
     public $inputType = 'text';
     
     /**
@@ -19,7 +19,10 @@ class input extends formElement
     public function __toString()
     {
         $this->check();
-        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" id=\"{$this->id}\">";
+        if(empty($this->name)) {
+            $this->name = $this->id;
+        }
+        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
     }
     
     /**
@@ -44,9 +47,9 @@ class input extends formElement
     private function renderLabel()
     {
         if($this->label) {
-    		return "<label for=\"{$this->name}\">{$this->label}</label>";
+        	return "<label for=\"{$this->name}\">{$this->label}</label>";
     	}else {
             return null;
-    	}
+        }
     }
 }
