@@ -32,6 +32,7 @@ class form
     public $enctype;
     public $name; // attribute name depends on the doctype, some doctypes doesn't support this attr.
     public $id;
+    public $method;
     
     // Form's elements
     public $elements = array();
@@ -51,7 +52,16 @@ class form
     {
         $this->debugData[] = 'Converting the form into string...';
         //throw new formException("form rendering not yet implemented");        
-        $html = "<form action=\"{$this->action}\" enctype=\"{$this->enctype}\">";
+        $html = '<form action="'.$this->action.'"';
+        if($this->method) {
+            $html .= ' method="'.$this->method.'"';
+        }
+        if($this->enctype) {
+            $html .= ' enctype="'.$this->enctype.'"';
+        }
+        // close the opening tag of the form element
+        $html .= '>';
+        // render the elements of the form
         foreach($this->elements as $el) {
             $html .= $el;
         }
