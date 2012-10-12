@@ -14,13 +14,13 @@
 * @param string $class Name of the class to look up
 * @return void
 */
-function classLoader($class)
+function OFMclassLoader($class)
 {
     $dirs = array("common", "components", "reader");
     foreach($dirs as $dir) {
-        if(file_exists(OFMWWWDIR.DS.$dir.DS.$class.'.php')) {
+        if(file_exists(OFMWWWDIR.DS.OFMHOME.DS.$dir.DS.$class.'.php')) {
             try{
-                include_once OFMWWWDIR.DS.$dir.DS.$class.'.php';
+                include_once OFMWWWDIR.DS.OFMHOME.DS.$dir.DS.$class.'.php';
             }catch(Exception $e){
                 echo "Error while trying to load $class in ".$dir.DS.$class.".php";
             }            
@@ -30,4 +30,4 @@ function classLoader($class)
 }
 
 // Register my autoload class
-spl_autoload_register('classLoader');
+spl_autoload_register('OFMclassLoader');
