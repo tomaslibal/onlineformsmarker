@@ -66,15 +66,40 @@ class reader
             $elements[] = $title;
         }
         
+        // line breakings
+        $breaksRE = "/(\s]+\-\-[\s]+)/is";
+        $breaksRE = "/(\-\-)/is";
+        if(preg_match($breaksRE, $this->data, $matches)) {
+            $break = new linebreak();
+            $elements[] = $break;
+        }
+        
         // modifiers i; g (global) modifier for multiple matching is replaced by preg_match_all function usage
-        $inputsRE = "/\(input(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i";
+        $inputsRE = "/\(input(|[:\w]+)(|#[\w]+)\)(|@@[\w]+@@)([\w ()]+)/i";
         preg_match_all($inputsRE, $this->data, $matches, PREG_SET_ORDER);
         foreach($matches as $val) {
             $tmp = new input();
-            $tmp->label = $val[3];
+            $tmp->label = $val[4];
+
+            $tmp->value = $val[3];
             
             $tmp->id = $this->filterOutText($val[2]);
             $tmp->inputType = $this->filterOutText($val[1]);
+            
+            $elements[] = $tmp;        
+        }
+        
+        // !!!
+        $textareasRE = "/\(textarea(|#[\w]+)\)([\w ]{0,})/i";
+        preg_match_all($textareasRE, $this->data, $matches, PREG_SET_ORDER);
+        foreach($matches as $val) {
+            $tmp = new textarea();
+            
+            $tmp->caption = $val[2];
+
+            $tmp->id = $this->filterOutText($val[1]);
+            $tmp->name = $this->filterOutText($val[1]);
+            
             
             $elements[] = $tmp;            
         }
