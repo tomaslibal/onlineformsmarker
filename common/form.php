@@ -56,6 +56,9 @@ class form
         if($this->method) {
             $html .= ' method="'.$this->method.'"';
         }
+        if($this->id) {
+            $html .= " id=\"{$this->id}\"";
+        } 
         if($this->enctype) {
             $html .= ' enctype="'.$this->enctype.'"';
         }
