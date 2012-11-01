@@ -1,6 +1,6 @@
 <?php
 #
-# This file can be included in other projects and will bring in the onlineformsmarker
+# Include this file into other projects and it will bring in the onlineformsmarker
 # functionality into the projects.
 #
 
