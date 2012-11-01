@@ -2,6 +2,8 @@
 
 /**
 * Input form element
+* <input type="text">
+* Input properties are ID, name, inputType, value, and label
 *
 * @author Tom Libal, tomas<at>libal<dot>eu
 */
@@ -9,6 +11,7 @@ class input extends formElement
 {
     public $value;
     public $name;
+    public $label;
     public $inputType = 'text';
     
     /**

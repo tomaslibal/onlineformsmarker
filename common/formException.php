@@ -1,6 +1,5 @@
 <?php
 /**
-*
 * formException
 *
 *
@@ -9,7 +8,6 @@
 * @version 0.0.0
 *
 */
-
 class formException extends Exception
 {
     

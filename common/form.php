@@ -4,10 +4,10 @@
 * Form class acts as an entry point for interacting with the form rendering 
 * functionality.
 *
-*
+* @author Tom.
 * @package OnlineFormsMarker
 *
-* @version 0.1.0
+* @version 0.1.1
 *
 * // example
 * $testForm = "
@@ -102,7 +102,10 @@ class form
     #        $this->debugData[] = "Appending $name to the elements";
     #        $this->elements[$name] = $value;
     #    }
-    
+
+    /**
+     * ?what to use for
+     */
     public function __get($name)
     {
     }
@@ -119,5 +122,13 @@ class form
         $reader->load($markup);
         $this->elements = $reader->parse();
     }
-        
+    
+    /**
+     * Returns the debug data in an array
+     * @return array
+     */
+    public function printDebugTrace()
+    {
+        return $this->debugData;
+    }    
 }
