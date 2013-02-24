@@ -47,7 +47,7 @@ class form
     }
     
     /**
-    * Rendering?
+    * Rendering...
     */
     public function __toString()
     {
@@ -122,7 +122,7 @@ class form
     {
         $reader = new reader();
         $reader->load($markup);
-        $this->elements = $reader->parse();
+        $this->output = $reader->parse();
     }
     
     /**
@@ -131,6 +131,7 @@ class form
      */
     public function printDebugTrace()
     {
+		$this->debugData[] = "Getting the debug trace";
         return $this->debugData;
     }    
 }
