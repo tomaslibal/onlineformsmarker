@@ -18,11 +18,11 @@ function OFMclassLoader($class)
 {
     $dirs = array("common", "components", "reader");
     foreach($dirs as $dir) {
-        if(file_exists(OFMWWWDIR.DS.OFMHOME.DS.$dir.DS.$class.'.php')) {
+        if(file_exists(OFMWWWDIR.OFMDS.OFMHOME.OFMDS.$dir.OFMDS.$class.'.php')) {
             try{
-                include_once OFMWWWDIR.DS.OFMHOME.DS.$dir.DS.$class.'.php';
+                include_once OFMWWWDIR.OFMDS.OFMHOME.OFMDS.$dir.OFMDS.$class.'.php';
             }catch(Exception $e){
-                echo "Error while trying to load $class in ".$dir.DS.$class.".php";
+                echo "Error while trying to load $class in ".$dir.OFMDS.$class.".php";
             }            
             break;
         }
