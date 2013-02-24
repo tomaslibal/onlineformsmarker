@@ -1,9 +1,7 @@
 <?php
-
 /**
-* Transforms textual representation of the form mark up language into logical
+* Transforms the textual representation of the form mark up language into logical
 * parts that can be transformed into HTML code.
-*
 *
 * @package onlineformsmarker
 * @subpackage reader
@@ -28,7 +26,10 @@ class reader
     */
     public function load($string)
     {
-        $this->data = $string;
+       if (strcmp(mb_detect_encoding($string, 'UTF8', true), 'UTF-8') !== 0) { // check if the input is UTF-8 encoded
+          $string = utf8_encode($string);
+       } 
+       $this->data = $string;
     }
     
     /**
