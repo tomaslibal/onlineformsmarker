@@ -1,7 +1,9 @@
 <?php
+
 /**
-* Transforms the textual representation of the form mark up language into logical
+* Transforms textual representation of the form mark up language into logical
 * parts that can be transformed into HTML code.
+*
 *
 * @package onlineformsmarker
 * @subpackage reader
@@ -17,6 +19,7 @@ class reader
     
     public function __construct()
     {
+        $this->processor = new processor();
     }
     
     /**
@@ -26,10 +29,7 @@ class reader
     */
     public function load($string)
     {
-       if (strcmp(mb_detect_encoding($string, 'UTF8', true), 'UTF-8') !== 0) { // check if the input is UTF-8 encoded
-          $string = utf8_encode($string);
-       } 
-       $this->data = $string;
+        $this->data = $string;
     }
     
     /**
@@ -41,12 +41,12 @@ class reader
     */
     public function parse()
     {
-        $RE = array("sectioncontrolbox" => "/\(sectioncontrolbox(|[:\w]+)\)/is",
+        $RE = array("sectioncontrolbox" => "/\(sectioncontrolbox(|[:\w]+)(|#[\w]+)\)/is",
             "clearleft" => "/\(clearleft\)/is",
             "title" => "/([\w ]+).([\+]+)/is",
             "selects" => "/\(select(|box)(|[:\w]+)(|[\[\w\d -\]]+)\)(|[\w \.()]+)/is",
             "breaks" => "/([ ]\-\-[ ])/is",
-            "inputs" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \.()\?]+)/i",
+            "inputs" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \-\_\.()\?\/]+)/i",
             "textareas" => "/\(textarea(|#[\w]+)\)([\w ]{0,})/i",
             "buttons" => "/\(button(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i"
             );
