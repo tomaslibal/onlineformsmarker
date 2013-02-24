@@ -1,13 +1,15 @@
 <?php
-
 /**
-* Processes the form markup
+* Processes the form markup supplied from the reader class (reader.php).
+* The markup is read in the reader class where regular expressions are used to find passages of markup signs. These signs are replaced with HTML code supplied by this processor class. The HTML code is in fact created by form components themselve and passed on to here.
 *
+* @author Tom.
+* @package onlineformsmarker
+* @version 0.5
 */
-
 class processor 
 {
-	/**
+    /**
     * Filters out all non-alphabet characters from text
     *
     * @param string $string String from which the alphabet characters will be filtered out
@@ -22,20 +24,29 @@ class processor
             return null;
         }  
     }
-
+    /**
+     * Creates HTML code for the title of the form
+     *
+     */
     public function title($value)
     {
-    	$title = new title();
+        $title = new title();
     	$title->value = $value[1];
     	return $title;
     }
-
+    /**
+     * Creates a HTML code for breaks in the form
+     *
+     */
     public function breaks()
     {
     	$break = new linebreak();
     	return $break;
     }
-
+    /**
+     * Creates HTML code for the inputs in the form
+     *
+     */
     public function inputs($val)
     {
     	$tmp = new input();
@@ -47,7 +58,10 @@ class processor
         $tmp->inputType = $this->filterOutText($val[1]);
         return $tmp;
     }
-
+    /**
+     * Creates HTML code for textareas in the form
+     *
+     */
     public function textareas($val)
     {
     	$tmp = new textarea();
@@ -59,7 +73,10 @@ class processor
 
         return $tmp;
     }
-
+    /**
+     * Creates HTML code for buttons in the form
+     *
+     */
     public function buttons($val)
     {
     	$tmp = new button();
@@ -70,16 +87,19 @@ class processor
         $tmp->name = $this->filterOutText($val[2]);
         return $tmp;
     }
-
+    /**
+     * Creates HTML code for "section control box". That's a div with "back" and "continue" buttons at the end of a fieldset. The functionality is JavaScript enabled only.
+     * @param string $val
+     * @return string
+     */
     public function sectioncontrolbox($val)
     {
     	$html = "<div class=\"contbox\">";
-    	if($val[1] !== ":first") {
+    	if($val[1] !== ":first") { // first control box doesn't have "back" button. Nowhere to go back.
     		$html .= "<div class=\"contbt backbt\">Back</div>";
     	}
-    	if($val[1] !== ":last") {
-            $id = (!empty($val[2])) ? $this->filterOutText($val[2]) : null;
-    		$html .= "<div class=\"contbt\" id=\"$id\">Continue</div>";
+    	if($val[1] !== ":last") { // last control box doesn't have "continue" button. Nowhere to continue to.
+    		$html .= "<div class=\"contbt\" id=\"validatepersonal\">Continue</div>";
     	}
     	$html .= "
                                 <div class=\"conttext\">You can go back as many times as you want</div>
@@ -87,12 +107,20 @@ class processor
                             </div><!-- /contbox -->";
     	return $html;
     }
-
+    /**
+     * Creates HTML code for CSS clear: left;
+     * @return string
+     */
     public function clearleft()
     {
     	return "<div class=\"clearLeft\"></div>";
     }
-
+    /**
+     * Creates HTML code for select boxes
+     * !!!not functional atm
+     * @param string $val
+     * @return string
+     */
     public function selects($val)
     {
     	$select = new selectbox();
