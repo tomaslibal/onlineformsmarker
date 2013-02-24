@@ -2,8 +2,6 @@
 
 /**
 * Input form element
-* <input type="text">
-* Input properties are ID, name, inputType, value, and label
 *
 * @author Tom Libal, tomas<at>libal<dot>eu
 */
@@ -11,8 +9,8 @@ class input extends formElement
 {
     public $value;
     public $name;
-    public $label;
     public $inputType = 'text';
+    public $label;
     
     /**
     * Render control
@@ -25,7 +23,11 @@ class input extends formElement
         if(empty($this->name)) {
             $this->name = $this->id;
         }
-        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
+        $class = '';
+        if($this->inputType == 'radio') {
+            $class = ' class="short"';
+        }
+        return $this->renderLabel()."<input{$class} type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
     }
     
     /**
@@ -50,7 +52,7 @@ class input extends formElement
     private function renderLabel()
     {
         if($this->label) {
-        	return "<label for=\"{$this->name}\">{$this->label}</label>";
+    		return "<label for=\"{$this->name}\">{$this->label}</label>";
     	}else {
             return null;
         }

@@ -9,6 +9,6 @@ class button extends formElement
     
     public function __toString()
     {
-        return "<button type=\"{$this->type}\" name=\"{$this->name}\">{$this->value}</button>";
+        return "<button id=\"{$this->id}\" type=\"{$this->type}\" name=\"{$this->name}\">{$this->value}</button>";
     }
 }

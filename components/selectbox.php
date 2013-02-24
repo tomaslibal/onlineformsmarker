@@ -2,7 +2,7 @@
 
 class selectbox extends formElement 
 {
-    public $name;
+	public $name;
 	public $title;
 	public $values = array();
 
