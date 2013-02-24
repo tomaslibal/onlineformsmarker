@@ -39,6 +39,7 @@ class form
     
     public $debug = false;
     private $debugData = array();
+    private $output;
     
     public function __construct()
     {
@@ -65,9 +66,10 @@ class form
         // close the opening tag of the form element
         $html .= '>';
         // render the elements of the form
-        foreach($this->elements as $el) {
-            $html .= $el;
-        }
+        // foreach($this->elements as $el) {
+        //     $html .= $el;
+        // }
+        $html .= $this->output;
         $html .= '</form>';
         
         return $html;
