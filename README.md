@@ -5,29 +5,45 @@ Rendering engine for my form markup syntax. Takes input in a textual form or
 the methods of the formbuilder can be used to design and compose a form. Renders
 the form as HTML code.
 
-Sample syntax
+Example
 -------------
 
-![Image showing an example of the syntax](http://libal.eu/imghost/ofm1.PNG "Sample syntax")
+![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/OFM_demo1.png "Example of OnlineFormsMarker")
 <br>Input as text demonstrating the syntax
+<br>Result in a web browser running on a local server (depending on used CSS styles)
 
-
-Result
+Syntax
 ------
 
-![Image showing processed syntax into a HTML code](http://libal.eu/imghost/ofm2.PNG "Processed syntax")
-<br>Result in a web browser running on a local server
+*** Input
 
-(The results differ according to used stylesheets)
+<pre><code>(input)LABEL_OF_THE_INPUT
+</code></pre>
 
+<pre><code>(input:INPUT_TYPE)
+</code></pre>
 
+INPUT_TYPE corresponds to the HTML valid <input type="INPUT_TYPE"> types.
 
-TODOs
-------
+Predefined value of an input:
+<pre><code>(input)@@VALUE@@Your name
+</code></pre>
 
-* TESTS!...
-* Add error and exception handling
-* Add fieldset and legend support
-* Add selectbox support
-* Add radio and checkbutton support
-* Extend the support for action and enctype attributes
+VALUE can be any text.
+
+*** Textarea
+
+<pre><code>(textarea)
+</code></pre>
+
+*** Button
+
+<pre><code>(button)</code></pre>
+
+*** Title
+
+<pre><code>TITLE<br>
++++++++++++++++++</code></pre>
+
+------------------
+Version March 15, 2013
