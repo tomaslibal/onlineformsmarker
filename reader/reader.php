@@ -49,7 +49,7 @@ class reader
             "breaks" => "/([ ]\-\-[ ])/is",
             "inputs" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \-\_\.()\?\/]+)/i",
             "textareas" => "/\(textarea(|#[\w]+)\)([\w ]{0,})/i",
-            "buttons" => "/\(button(|[:\w]+)(|#[\w]+)\)([\w ]{0,})/i"
+            "buttons" => "/\(button(|[:\w]+)(|#[\w]+)\)([\w \!-_]{0,})/i"
             );
 
         foreach($RE as $key => $val) {
