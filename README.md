@@ -17,13 +17,17 @@ Syntax
 
 ### Input
 
+Default input with a label:
 <pre><code>(input)LABEL_OF_THE_INPUT
 </code></pre>
 
+Specifying the input's type:
 <pre><code>(input:INPUT_TYPE)
 </code></pre>
-
 INPUT_TYPE corresponds to the HTML valid `<input type="INPUT_TYPE">` types.
+
+Specifying the input's ID:
+<pre><code>(input#INPUT_ID)</code></pre>
 
 Predefined value of an input:
 <pre><code>(input)@@VALUE@@Your name
@@ -33,8 +37,16 @@ VALUE can be any text.
 
 ### Textarea
 
+Default (empty) textarea:
 <pre><code>(textarea)
 </code></pre>
+
+Content of the textarea:
+<pre><code>(textarea)@@CONTENT HERE@@
+</code></pre>
+
+Caption of the textarea:
+<pre><code>(textarea)LABEL_HERE</code></pre>
 
 ### Button
 
