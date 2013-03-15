@@ -48,7 +48,7 @@ class reader
             "selects" => "/\(select(|box)(|[:\w]+)(|[\[\w\d -\]]+)\)(|[\w \.()]+)/is",
             "breaks" => "/([ ]\-\-[ ])/is",
             "inputs" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \-\_\.()\?\/]+)/i",
-            "textareas" => "/\(textarea(|#[\w]+)\)([\w ]{0,})/i",
+            "textareas" => "/\(textarea(|#[\w]+)\)(|@@[\w \?\_\-]+@@)([\w ]+)/i",
             "buttons" => "/\(button(|[:\w]+)(|#[\w]+)\)([\w \!-_]{0,})/i"
             );
 
