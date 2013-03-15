@@ -8,6 +8,6 @@ class textarea extends formElement
     
     public function __toString()
     {
-        return "{$this->caption}<textarea name=\"{$this->name}\" id=\"{$this->id}\">{$this->data}</textarea>";
+        return "<label for="{$this->id}">{$this->caption}</label><textarea name=\"{$this->name}\" id=\"{$this->id}\">{$this->data}</textarea>";
     }
 }
