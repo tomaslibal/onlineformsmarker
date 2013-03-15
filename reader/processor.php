@@ -66,10 +66,10 @@ class processor
     {
     	$tmp = new textarea();
         
-        $tmp->caption = $val[2];
-
+        $tmp->caption = $val[3];
+        $tmp->data = $this->filterOutText($val[2]);
         $tmp->id = $this->filterOutText($val[1]);
-        $tmp->name = $this->filterOutText($val[1]);
+        $tmp->name = $this->filterOutText($val[1]); // @todo add the name property to the textarea class
 
         return $tmp;
     }
