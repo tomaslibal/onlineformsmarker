@@ -44,7 +44,7 @@ class reader
     {
         $RE = array("sectioncontrolbox" => "/\(sectioncontrolbox(|[:\w]+)(|#[\w]+)\)/is",
             "clearleft" => "/\(clearleft\)/is",
-            "title" => "/([\w ]+).([\+]+)/is",
+            "title" => '/([\w ]+)(\r\n|\n|\r)[\+]{3,}/is',
             "selects" => "/\(select(|box)(|[:\w]+)(|[\[\w\d -\]]+)\)(|[\w \.()]+)/is",
             "breaks" => "/([ ]\-\-[ ])/is",
             "inputs" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \-\_\.()\?\/]+)/i",
