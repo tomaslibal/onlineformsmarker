@@ -32,7 +32,7 @@ class form
     public $enctype;
     public $name; // attribute name depends on the doctype, some doctypes doesn't support this attr.
     public $id;
-    public $method;
+    public $method = 'post';
     
     // Form's elements
     public $elements = array();
