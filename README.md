@@ -54,13 +54,27 @@ Default button:
 <pre><code>(button)</code></pre>
 
 Button type:
-        (button:BUTTON_TYPE)
+<pre><code>(button:BUTTON_TYPE)</code></pre>
 BUTTON_TYPE corresponds to valid HTML `<button type="BUTTON_TYPE">` types.
 
 ### Title
 
+A line of words with at leat 3 `+` symbols on the line under
 <pre><code>TITLE
 +++++++++++++++++</code></pre>
+
+Form class
+----------
+
+The class is located at onlineformsmarker/common/form.php
+
+### Public properties
+
+* action `$form->action`
+* method `$form->method`
+* enctype `$form->enctype`
+* name `$form->name` (not all DOCTYPES support this attribute)
+* id `$form->id`
 
 ------------------
 Version March 15, 2013
