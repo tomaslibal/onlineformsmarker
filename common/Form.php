@@ -1,9 +1,6 @@
 <?php
 namespace OFM\Common;
 /**
-* Form class acts as an entry point for interacting with the form rendering 
-* functionality. It holds the information about form's elements.
-*
 * @package OnlineFormsMarker
 *
 * // example
@@ -18,9 +15,10 @@ namespace OFM\Common;
 * (button)Register me!
 * ";
 *
-* $myForm = new Form();
-* $myForm->read($testForm);
-* echo $myForm;
+* $MyForm = new \OFM\Common\Form();
+* $MyForm->Action = "where_to_send.php";
+* $MyForm->read($testForm);
+* echo $MyForm;
 * // end of example
 */
 class Form 
@@ -33,7 +31,7 @@ class Form
     
     // Form's elements
     public $elements = array();
-    
+    // Internals:
     public $debug = false;
     private $debugData = array();
     private $output;
@@ -44,7 +42,8 @@ class Form
     }
     
     /**
-    * Rendering...
+    * Renders the form
+    * @return String
     */
     public function __toString()
     {
@@ -80,15 +79,15 @@ class Form
     */
     public function add($type, $id)
     {
-        $el = new $type;
+        $el = new \OFM\Components\$type;
         $el->id = $id;
         
         // append the new element to this form
         $this->elements[$id] = $el;
     }
     
-    # Not currently used and because mostly the form will be built from a syntax
-    # documents this wont be needed. $this->add() function can be used instead
+    # Not currently used
+    # $this->add() function can be used instead
     #
     #    /**
     #    * Overload function appending a new element to the array of form elements
@@ -101,16 +100,9 @@ class Form
     #        $this->debugData[] = "Appending $name to the elements";
     #        $this->elements[$name] = $value;
     #    }
-
-    /**
-     * ?what to use for
-     */
-    public function __get($name)
-    {
-    }
     
     /**
-    * Uses the built-in feature of the form markup reader
+    * Loads text and parses the mark up into HTML
     *
     * @param string $markup
     * @return bool
