@@ -1,23 +1,16 @@
 <?php
 /**
-* Custom autoloader function for including necessary libraries. This is somewhat
-* pre "Namespaces in 5.3". 
-*
+* Custom autoloader function for including the necessary libraries. 
 * @package onlineformsmarker
-* @subpackage runtime
-*
-* @version 0.1.1
-* @author Tom Libal, tomas<at>libal<dot>eu
-*
-* @param string $class Name of the class to look up
+* @param String $class Name of the class to look up
 * @return void
 */
-function OFMclassLoader($class)
+function classLoader($class)
 {
-    $class = preg_match("/\\\([\w _-]+)$/i", $class, $matches);
-    $class = $matches[1];
+    $class = preg_match("/\\\([\w _-]+)$/i", $class, $matches); // remove the namespace prefix from the name of the class -- transitory measure only!
+    $class = $matches[1]; 
  
-    $dirs = array("common", "components", "reader");
+    $dirs = array("common", "components", "reader");          // look up directories
     foreach($dirs as $dir) {
         if(file_exists(OFMWWWDIR.OFMDS.OFMHOME.OFMDS.$dir.OFMDS.$class.'.php')) {
             try{
@@ -30,5 +23,11 @@ function OFMclassLoader($class)
     }
 }
 
-// Register my autoload class
-spl_autoload_register('OFMclassLoader');
+# Store the used paths in a file so that they can be retrieved faster without the need to traverse through the directories
+# Use an ordered array to enable binary search
+function loadClassPaths() {}                                  // load the data from the file into an array and possibly store it in the SESSION as a serialized object (if the memory of SESSION is suitable for storing such data)
+function lookupClassPath() {}                                 // look up the path in the file
+function addClassPath() {}                                    // if the look up from the file failed and the path had to be build anew, then add it to the file
+function clearUnusedPaths() {}                                // clears up the paths that have not been used in the last 30 days
+
+spl_autoload_register('classLoader');                         // Register my autoload class
