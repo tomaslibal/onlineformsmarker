@@ -1,6 +1,4 @@
 <?php
-
-
 /**
 * Custom autoloader function for including necessary libraries. This is somewhat
 * pre "Namespaces in 5.3". 
@@ -16,6 +14,9 @@
 */
 function OFMclassLoader($class)
 {
+    $class = preg_match("/\\\([\w _-]+)$/i", $class, $matches);
+    $class = $matches[1];
+ 
     $dirs = array("common", "components", "reader");
     foreach($dirs as $dir) {
         if(file_exists(OFMWWWDIR.OFMDS.OFMHOME.OFMDS.$dir.OFMDS.$class.'.php')) {

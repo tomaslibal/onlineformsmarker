@@ -12,7 +12,7 @@ TEST FORM
 (button)Register me!
 ";
 
-$myForm = new form();
+$myForm = new OFM\Common\Form();
 $myForm->action = 'sendTo.php';
 $myForm->read($testForm);
 echo $myForm;
