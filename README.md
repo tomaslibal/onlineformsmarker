@@ -1,16 +1,16 @@
 OnlineFormsMarker
 =================
 
-Rendering engine for my form markup syntax. Takes input in a textual form or
-the methods of the formbuilder can be used to design and compose a form. Renders
-the form as HTML code.
+This is a rendering app for my form markup syntax. It takes input in textual form or
+the OOP methods of the form and components can be used to design and compose the form. 
+The result is rendered as HTML code.
 
 Example
 -------------
 
 ![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/OFM_Capture_new.PNG "Example of OnlineFormsMarker")
-<br>Input as text demonstrating the syntax
-<br>Result in a web browser running on a local server (depending on used CSS styles)
+<br>Input-as-text example demonstrating the basic syntax and use
+<br>Result in a web browser running on a local server (some CSS was used)
 
 Syntax
 ------
@@ -59,7 +59,7 @@ BUTTON_TYPE corresponds to valid HTML `<button type="BUTTON_TYPE">` types.
 
 ### Title
 
-A line of words with at leat 3 `+` symbols on the line under
+One line of text with at leat 3 `+` symbols on the line beneath
 <pre><code>TITLE
 +++++++++++++++++</code></pre>
 
