@@ -1,7 +1,7 @@
 <?php
 namespace OFM\Components;
 
-require_once OFMWWWDIR.OFMDS.OFMHOME."/App/FormElement.php";
+require_once OFMHOME."/App/FormElement.php";
 
 /**
 * Input form element
@@ -21,30 +21,11 @@ class Input extends \OFM\App\FormElement
     * @return string
     */
     public function __toString()
-    {
-        $this->check();
+    {    
         if(empty($this->name)) {
             $this->name = $this->id;
-        }
-        $class = '';
-        if($this->inputType == 'radio') {
-            $class = ' class="short"';
-        }
-        return $this->renderLabel()."<input{$class} type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
-    }
-    
-    /**
-    * Does necessary checking before the object is turned into a string
-    *
-    */
-    private function check()
-    {
-        if(empty($this->inputType)) {
-            $this->inputType = 'text';
-        }
-        if(empty($this->name) && !empty($this->id)) {
-            $this->name = $this->id;
-        }
+        }        
+        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
     }
     
     /**
@@ -54,10 +35,6 @@ class Input extends \OFM\App\FormElement
     */
     private function renderLabel()
     {
-        if($this->label) {
-    		return "<label for=\"{$this->name}\">{$this->label}</label>";
-    	}else {
-            return null;
-        }
+        return ($this->label) ? "<label for=\"{$this->name}\">{$this->label}</label>" : null;        
     }
 }

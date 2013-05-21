@@ -1,7 +1,7 @@
 <?php
 namespace OFM\Components;
 
-require_once OFMWWWDIR.OFMDS.OFMHOME."/App/FormElement.php";
+require_once OFMHOME."/App/FormElement.php";
 
 class Title extends \OFM\App\FormElement 
 {
@@ -9,6 +9,6 @@ class Title extends \OFM\App\FormElement
 
     public function __toString()
     {
-        return "<h1>{$this->value}</h1>";
+        return "<h1>{$this->value}</h1>\n";
     }
 }

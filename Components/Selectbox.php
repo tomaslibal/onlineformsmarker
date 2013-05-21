@@ -1,6 +1,7 @@
 <?php
 namespace OFM\Components;
-require_once OFMWWWDIR.OFMDS.OFMHOME."/App/FormElement.php";
+require_once OFMHOME."/App/FormElement.php";
+
 class Selectbox extends \OFM\App\FormElement 
 {
 	public $name;
@@ -9,28 +10,18 @@ class Selectbox extends \OFM\App\FormElement
 
 	public function __construct($name = null, $values = array())
 	{
-		if($name) {
-			$this->name = $name;
-		}
-		if(count($values)>0) {
-			$this->values = $values;
-		}
+		$this->name = $name;
+		$this->values = $values;		
  	}
 
  	private function renderLabel()
  	{
- 		$html = '';
- 		if(!empty($this->name)) {
- 			$html .= '<label for="'.$this->name.'">'; 
- 			if($this->title) {
- 				$html .= $this->title;
- 			}else {
- 				$html .= $this->name;
- 			}
-  			$html .= '</label>';
- 		}
- 		
- 		return $html;
+ 		if(empty($this->name)) { 
+ 			return null; 
+ 		}else {
+ 			$caption = ($this->title) ? $this->title : $this->name;
+ 			return '<label for="'.$this->name.'">'.$caption.'</label>';
+ 		} 	
  	}
 
 	public function __toString()
