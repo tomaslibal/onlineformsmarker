@@ -1,13 +1,13 @@
 <?php
 namespace OFM\App;
-require_once "./I/IProcessor.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/I/IProcessor.php";
 
-require_once "./Components/Title.php";
-require_once "./Components/Input.php";
-require_once "./Components/Linebreak.php";
-require_once "./Components/Selectbox.php";
-require_once "./Components/Textarea.php";
-require_once "./Components/Button.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Title.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Input.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Linebreak.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Selectbox.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Textarea.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Button.php";
 
 class Processor implements \OFM\Interfaces\IProcessor
 {
@@ -31,7 +31,7 @@ class Processor implements \OFM\Interfaces\IProcessor
 
 	public function getTextOnly($data)
 	{
-		if(preg_match("/([\w]+)/i", $string, $match)) {
+		if(preg_match("/([\w]+)/i", $data, $match)) {
             return $match[0];
         }else {
             return null;
@@ -50,16 +50,21 @@ class Processor implements \OFM\Interfaces\IProcessor
 	}
 
 	public function input($data)
-	{
+	{		
 		$tmp = new \OFM\Components\Input();
 		$tmp->value = $data[4];
 		$tmp->name = $data[3];
-	 	$tmp->inputType = ($data[1]) ? $data[1] : null;
-	 	//$tmp->label = ($data[$data[];
+	 	$tmp->inputType = ($data[1]) ? $this->getTextOnly($data[1]) : null;
+	 	$tmp->label = ($data[5]) ? $data[5] : null;
 	 	return $tmp;
 	}
 
 	public function button ($data)
-	{
+	{	
+		$tmp = new \OFM\Components\Button();		
+		$tmp->value = $data[3];
+		$tmp->id = $this->getTextOnly($data[2]);
+		$tmp->type = $this->getTextOnly($data[1]);
+		return $tmp;
 	}
 }
