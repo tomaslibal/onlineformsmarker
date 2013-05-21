@@ -1,7 +1,10 @@
 <?php
 namespace OFM\App;
 
-// Environment setting
+
+// Set the Environment:
+
+
 /**
  * Defines a Constant
  * @param string $name Name of the constant
@@ -17,7 +20,7 @@ function defineConst($name, $value)
 defineConst("OFM", "OFM"); // online forms marker
 defineConst(OFM."DS", DIRECTORY_SEPARATOR);
 defineConst(OFM."HOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
-//defineConst(OFM."WWWDIR", dirname(dirname(dirname(__FILE__))));
+
 
 require_once OFMHOME."/I/IForm.php";
 require_once OFMHOME."/App/Processor.php";
@@ -26,21 +29,50 @@ class Form implements \OFM\Interfaces\IForm
 {
 	private $content; 
 
+	
 	public $action;
 	public $method;
 	public $enctype;
 	public $name;
 	public $id;
 
+	
 	public function loadString($content)
 	{
 		$this->content = $content;
 		return true;		
-	} // loads string and makes a form out of it
-	public function loadFile(){}
-	public function loadXML(){}
+	}
+	
 
-	public function validateForm(){} // validates the $this->content;
+	public function loadFile($path)
+	{
+		if(!file_exists($path)) {
+			return false;
+		}
+		try {
+			$this->content = file_get_contents($path);
+		}catch (FormExeption $e) {
+			return $e->getMessage();
+		}
+	}
+
+	// if the form is stored as XML match the nodes that represent form elements with the FormElement objects so that they can be rendered (by calling __toString())
+	public function loadXML($path)
+	{
+		throw new FormException("Not yet implemented");
+	}
+
+	// the same as above except that here the data are supplied directly and not from the file
+	public function loadXMLString($content)
+	{
+		throw new FormException("Not yet implemented");
+	}
+
+	// validates if the OK 
+	public function validateForm()
+	{
+		throw new FormException("Not yet implemented");
+	} 
 
 	public function __toString()
 	{
@@ -57,5 +89,5 @@ class Form implements \OFM\Interfaces\IForm
 		$return .= $this->content;
 		$return .= "</form>";
 	    return $return;
-	} // rendering
+	}
 }
