@@ -1,11 +1,14 @@
 <?php
 namespace OFM\Components;
+
+require_once "./App/FormElement.php";
+
 /**
 * Input form element
 *
 * @author Tom Libal, tomas<at>libal<dot>eu
 */
-class Input extends \OFM\Common\FormElement
+class Input extends \OFM\App\FormElement
 {
     public $value;
     public $name;

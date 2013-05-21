@@ -1,7 +1,7 @@
 <?php
 namespace OFM\Components;
-
-class Button extends \OFM\Common\formElement
+require_once "./App/FormElement.php";
+class Button extends \OFM\App\formElement
 {
     public $type = "button";    
     public $value;

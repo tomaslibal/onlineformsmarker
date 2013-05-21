@@ -1,6 +1,7 @@
 <?php
 namespace OFM\Components;
-class Selectbox extends \OFM\Common\FormElement 
+require_once "./App/FormElement.php";
+class Selectbox extends \OFM\App\FormElement 
 {
 	public $name;
 	public $title;

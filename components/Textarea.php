@@ -1,6 +1,7 @@
 <?php
 namespace OFM\Components;
-class Textarea extends \OFM\Common\FormElement
+require_once "./App/FormElement.php";
+class Textarea extends \OFM\App\FormElement
 {
     public $cols;
     public $rows;

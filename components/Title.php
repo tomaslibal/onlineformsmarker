@@ -1,6 +1,9 @@
 <?php
 namespace OFM\Components;
-class Title extends \OFM\Common\FormElement 
+
+require_once "./App/FormElement.php";
+
+class Title extends \OFM\App\FormElement 
 {
     public $value;
 
