@@ -1,7 +1,7 @@
 <?php
 namespace OFM\Components;
 
-require_once "./App/FormElement.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/App/FormElement.php";
 
 class Linebreak extends \OFM\App\FormElement 
 {

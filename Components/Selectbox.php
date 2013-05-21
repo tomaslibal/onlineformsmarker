@@ -1,6 +1,6 @@
 <?php
 namespace OFM\Components;
-require_once "./App/FormElement.php";
+require_once OFMWWWDIR.OFMDS.OFMHOME."/App/FormElement.php";
 class Selectbox extends \OFM\App\FormElement 
 {
 	public $name;
