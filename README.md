@@ -8,7 +8,7 @@ the form as HTML code.
 Example
 -------------
 
-![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/OFM_demo1.png "Example of OnlineFormsMarker")
+![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/OFM_Capture_new.PNG "Example of OnlineFormsMarker")
 <br>Input as text demonstrating the syntax
 <br>Result in a web browser running on a local server (depending on used CSS styles)
 
