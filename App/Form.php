@@ -31,6 +31,12 @@ class Form implements \OFM\Interfaces\IForm
 {
 	private $content; 
 
+	public $action;
+	public $method;
+	public $enctype;
+	public $name;
+	public $id;
+
 	public function loadString($content)
 	{
 		$this->content = $content;
@@ -43,8 +49,18 @@ class Form implements \OFM\Interfaces\IForm
 
 	public function __toString()
 	{
+		$return = "<form method=\"";
+		$return .= ($this->method) ? $this->method.'"' : 'get"';
+		$return .= ($this->action) ? 'action="'.$this->action.'"' : null;
+		$return .= ($this->enctype) ? 'enctype="'.$this->enctype.'"' : null;
+		$return .= ($this->name) ? 'name="'.$this->name.'"' : null;
+		$return .= ($this->id) ? 'id="'.$this->id.'"' : null;
+		$return .= '>';
+
 		$p = new Processor();
 		$this->content = $p->parse($this->content);
-	    return $this->content;			
+		$return .= $this->content;
+		$return .= "</form>";
+	    return $return;
 	} // rendering
 }
