@@ -29,7 +29,7 @@ class Processor implements \OFM\Interfaces\IProcessor
         return $code;
 	}
 
-	private function getTextOnly($data)
+	public function getTextOnly($data)
 	{
 		if(preg_match("/([\w]+)/i", $string, $match)) {
             return $match[0];
