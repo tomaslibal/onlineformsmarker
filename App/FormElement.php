@@ -22,7 +22,7 @@ class FormElement
      */
     public function __toString()
     {
-        throw new formException("not yet implemented");        
+        throw new FormException("not yet implemented");        
     }
     
     public function __set($name, $value)

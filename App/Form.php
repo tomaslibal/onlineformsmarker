@@ -10,22 +10,17 @@ namespace OFM\App;
  */
 function defineConst($name, $value)
 {
-    if(!defined($name)) {
-	    define($name, $value);
-	    return true;
-	}else {
-		return false;
-	}
+    return (!defined($name)) ? define($name, $value) : false;    
 }
 
 // Environment settings
 defineConst("OFM", "OFM"); // online forms marker
 defineConst(OFM."DS", DIRECTORY_SEPARATOR);
-defineConst(OFM."HOME", "onlineformsmarker");
-defineConst(OFM."WWWDIR", dirname(dirname(dirname(__FILE__))));
+defineConst(OFM."HOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
+//defineConst(OFM."WWWDIR", dirname(dirname(dirname(__FILE__))));
 
-require_once OFMWWWDIR.OFMDS.OFMHOME."/I/IForm.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/App/Processor.php";
+require_once OFMHOME."/I/IForm.php";
+require_once OFMHOME."/App/Processor.php";
 
 class Form implements \OFM\Interfaces\IForm
 {

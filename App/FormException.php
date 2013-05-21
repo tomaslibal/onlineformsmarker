@@ -11,7 +11,7 @@ namespace OFM\App;
 */
 class FormException extends \Exception
 {
-    protected $message = "unknown FormException";
+    protected $message = "Unknown FormException";
     
     public function __construct($message, $code = 0, Exception $previous = null) {
         

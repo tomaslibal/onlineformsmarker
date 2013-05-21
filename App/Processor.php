@@ -1,13 +1,13 @@
 <?php
 namespace OFM\App;
-require_once OFMWWWDIR.OFMDS.OFMHOME."/I/IProcessor.php";
+require_once OFMHOME."/I/IProcessor.php";
 
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Title.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Input.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Linebreak.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Selectbox.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Textarea.php";
-require_once OFMWWWDIR.OFMDS.OFMHOME."/Components/Button.php";
+require_once OFMHOME."/Components/Title.php";
+require_once OFMHOME."/Components/Input.php";
+require_once OFMHOME."/Components/Linebreak.php";
+require_once OFMHOME."/Components/Selectbox.php";
+require_once OFMHOME."/Components/Textarea.php";
+require_once OFMHOME."/Components/Button.php";
 
 class Processor implements \OFM\Interfaces\IProcessor
 {
