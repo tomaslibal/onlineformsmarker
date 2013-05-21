@@ -18,8 +18,9 @@ function defineConst($name, $value)
 
 // Environment settings
 defineConst("OFM", "OFM"); // online forms marker
-defineConst(OFM."DS", DIRECTORY_SEPARATOR);
-defineConst(OFM."HOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
+defineConst("OFMDS", DIRECTORY_SEPARATOR);
+defineConst("OFMWWW", "onlineformsmarker");
+defineConst("OFMHOME", dirname(dirname(dirname(__FILE__))).OFMDS.OFMWWW);
 
 
 require_once OFMHOME."/I/IForm.php";
@@ -35,6 +36,8 @@ class Form implements \OFM\Interfaces\IForm
 	public $enctype;
 	public $name;
 	public $id;
+
+	public $standalone = false;
 
 	
 	public function loadString($content)
@@ -87,7 +90,25 @@ class Form implements \OFM\Interfaces\IForm
 		$p = new Processor();
 		$this->content = $p->parse($this->content);
 		$return .= $this->content;
-		$return .= "</form>";
-	    return $return;
+		$return .= "<div class=\"ofm-end\"></div></form>";
+	
+		if ($this->standalone) {
+			return $this->wrapper($return);
+		}else {
+			return $return;
+		}	 
+	} 
+
+	protected function wrapper($formHtml)
+	{
+		return "<!DOCTYPE html>\n
+		<html>\n
+		<head>\n
+		<meta charset=\"utf-8\">
+		<link rel=\"stylesheet\" media=\"screen\" href=\"/".OFMWWW."/Themes/normalize.css\">
+		<link rel=\"stylesheet\" media=\"screen\" href=\"/".OFMWWW."/Themes/default.css\">
+		<title>".$this->name."</title>
+		</head>\n
+		<body>".$formHtml."</body></html>";
 	}
 }
