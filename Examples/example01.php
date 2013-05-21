@@ -1,5 +1,5 @@
 <?php
-require_once '../onlineformsmarker.php';
+require_once '../App/Form.php';
 
 $testForm = "
 TEST FORM
@@ -12,8 +12,8 @@ TEST FORM
 (button)Register me!
 ";
 
-$myForm = new OFM\Common\Form();
+$myForm = new \OFM\App\Form();
 $myForm->action = 'sendTo.php';
-$myForm->read($testForm);
+$myForm->loadString($testForm);
 echo $myForm;
 ?>
