@@ -57,6 +57,14 @@ Button type:
 <pre><code>(button:BUTTON_TYPE)</code></pre>
 BUTTON_TYPE corresponds to valid HTML `<button type="BUTTON_TYPE">` types.
 
+### Selectbox
+
+Default:
+<pre><code>(selectbox)</code></pre>
+
+Specifying the options of the selectbox:
+<pre><code>(selectbox[opt1=val1][opt2=val2]...[optN=valN])</code></pre>
+
 ### Title
 
 One line of text with at leat 3 `+` symbols on the line beneath
@@ -73,8 +81,8 @@ The class is located at onlineformsmarker/common/form.php
 * action `$form->action`
 * method `$form->method`
 * enctype `$form->enctype`
-* name `$form->name` (not all DOCTYPES support this attribute)
+* name `$form->name` (note that not all DOCTYPES support this attribute)
 * id `$form->id`
 
 ------------------
-Version March 15, 2013
+Version May 22, 2013
