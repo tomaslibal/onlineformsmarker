@@ -9,16 +9,24 @@ require_once OFMHOME."/Components/Selectbox.php";
 require_once OFMHOME."/Components/Textarea.php";
 require_once OFMHOME."/Components/Button.php";
 
+
+// This class parses and processes the form markup syntax
+// and creates the form elements as specified in the get go code
 class Processor implements \OFM\Interfaces\IProcessor
 {
 	public function parse($code)
 	{
 		$RE = array(
             "title" => '/([\w ]+)(\r\n|\n|\r)[\+]{3,}/is',
-            "select" => "/\(select(|box)(|[:\w]+)(|[\[\w\d -\]]+)\)(|[\w \.()]+)/is",
-            "linebreak" => "/([ ]\-\-[ ])/is",
-            "input" => "/\(input(|[:\w]+)(|#[\w]+)(|\[[\w]+\])\)(|@@[\w]+@@)([\w \-\_\.()\?\/]+)/i",
-            "textarea" => "/\(textarea(|#[\w]+)\)(|@@[\w \?\_\-]+@@)([\w ]+)/i",
+            
+            "selectbox" => "/\(selectbox(:[\w]+)?([\[\w\d -\]]+)?\)([\w \.()]+)?/is",
+            
+            "linebreak" => "/(.[-]{2}.)/is",
+            
+            "input" => "/\(input(:[\w]+)?(#[\w]+)?(\[[\w]+\])?\)(@{2}[\w -_]+@{2})?([\w \-\_\.()\?\/]+)?/i",
+            
+            "textarea" => "/\(textarea(#[\w]{1,})?\)(@{2}[\w -_]+@{2})?([\w -_]+)?/i",
+            
             "button" => "/\(button(|[:\w]+)(|#[\w]+)\)([\w \!-_]{0,})/i"
             );
 
@@ -31,16 +39,34 @@ class Processor implements \OFM\Interfaces\IProcessor
 
 	public function getTextOnly($data)
 	{
-		if(preg_match("/([\w]+)/i", $data, $match)) {
+		if(preg_match("/([\w ]+)/i", $data, $match)) {
             return $match[0];
         }else {
             return null;
         }  
 	}
 
-	public function select($data){}
-	public function linebreak($data){}
-	public function textarea($data){}
+	public function selectbox($data)
+	{
+		$tmp = new \OFM\Components\Selectbox();
+		$tmp->name = $data[3];
+		$tmp->values = $data[2];
+		return $tmp;
+	}
+
+	public function linebreak($data)
+	{
+		return new \OFM\Components\Linebreak();
+	}
+
+	public function textarea($data)
+	{		
+		$tmp = new \OFM\Components\Textarea();
+		$tmp->id = $data[1];
+		$tmp->data = $this->getTextOnly($data[2]);
+		$tmp->caption = $data[3];		
+		return $tmp;
+	}
 
 	public function title($data)
 	{
@@ -52,10 +78,10 @@ class Processor implements \OFM\Interfaces\IProcessor
 	public function input($data)
 	{		
 		$tmp = new \OFM\Components\Input();
-		$tmp->value = $data[4];
-		$tmp->name = $data[3];
-	 	$tmp->inputType = ($data[1]) ? $this->getTextOnly($data[1]) : null;
-	 	$tmp->label = ($data[5]) ? $data[5] : null;
+		$tmp->value = (isset($data[4])) ? $this->getTextOnly($data[4]) : null;
+		$tmp->name = (isset($data[3])) ? $this->getTextOnly($data[3]) : null;
+	 	$tmp->inputType = (isset($data[1])) ? $this->getTextOnly($data[1]) : null;
+	 	$tmp->label = (isset($data[5])) ? $data[5] : null;
 	 	return $tmp;
 	}
 

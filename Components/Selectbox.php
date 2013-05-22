@@ -2,6 +2,7 @@
 namespace OFM\Components;
 require_once OFMHOME."/App/FormElement.php";
 
+
 class Selectbox extends \OFM\App\FormElement 
 {
 	public $name;
@@ -26,12 +27,14 @@ class Selectbox extends \OFM\App\FormElement
 
 	public function __toString()
 	{
-		$html = $this->renderLabel().'<select name="'.$this->name.'">';
-		$html .= '<option value="">please select</option>';
-		foreach($this->values as $key=>$val) {
-			$html .= '<option value="'.$val.'">'.$key.'</option>';
-		}
-		$html .= '</select>';
-		return $html;
+		$html = $this->renderLabel().'<select name="'.$this->name.'"><option value="">please select</option>';
+		
+		preg_match_all("/\[[\w]+=[\w]+\]/i", $this->values, $options);		
+
+		foreach($options[0] as $key=>$option) {			
+			preg_match("/\[([\w]+)=([\w]+)\]/i", $option, $tmp);			
+			$html .= '<option value="'.$tmp[1].'">'.$tmp[2].'</option>';
+		}		
+		return $html.'</select>';
 	}
 }
