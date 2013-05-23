@@ -6,7 +6,9 @@ namespace OFM\App;
 
 
 /**
- * Defines a Constant
+ * A helper function to define a constant if the constant's name
+ * is not yet in use. Otherwise returns just false.
+ *
  * @param string $name Name of the constant
  * @param string $value Value of the constant
  * @return bool
@@ -18,18 +20,28 @@ function defineConst($name, $value)
 
 // Environment settings
 defineConst("OFM", "OFM"); // online forms marker
-defineConst(OFM."DS", DIRECTORY_SEPARATOR);
-defineConst(OFM."HOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
+defineConst("OFMDS", DIRECTORY_SEPARATOR);
+defineConst("OFMHOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
 
 
 require_once OFMHOME."/I/IForm.php";
 require_once OFMHOME."/App/Processor.php";
 
+
+/**
+* The Form objects contain form's element as child objects in Form::$content.
+* The rendering is done by the magic funtion __toString() when echo is called
+* on the Form object which propagates the call to all child objects which
+* have also the __toString() method implemented.
+*
+* @package onlineformsmarker
+* @version 0.5.0
+*/
 class Form implements \OFM\Interfaces\IForm
 {
 	private $content; 
 
-	
+	// form attributes
 	public $action;
 	public $method;
 	public $enctype;
@@ -84,8 +96,13 @@ class Form implements \OFM\Interfaces\IForm
 		$return .= ($this->id) ? 'id="'.$this->id.'"' : null;
 		$return .= '>';
 
-		$p = new Processor();
-		$this->content = $p->parse($this->content);
+		try {
+			$p = new Processor();
+			$this->content = $p->parse($this->content);	
+		}catch(FormException $e) {
+			$this->content = $e->getMessage();
+		}
+		
 		$return .= $this->content;
 		$return .= "</form>";
 	    return $return;
