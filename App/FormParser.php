@@ -30,6 +30,15 @@ class FormParser implements \OFM\Interfaces\IParser
                 }
                 array_push($this->elems, $tmp);
                 break;
+            case 'button':
+                $tmp = new \OFM\Components\Button();
+                while(count($obj->tokens)>0) {
+                    $t = array_shift($obj->tokens);
+                    if(substr($t, 0, 1)=="#") $tmp->name = substr($t, 1);
+                    else $tmp->value .= $t.' ';
+                }
+                array_push($this->elems, $tmp);
+                break;
             }
         }
         return 0;
