@@ -1,5 +1,6 @@
 # ignore temp files, swap files and similar
 *.*~
 *.*#
+# ignore vim's swap files
 *.swp
 .DS_Store

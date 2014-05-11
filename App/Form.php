@@ -25,7 +25,8 @@ defineConst("OFMHOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmar
 
 
 require_once OFMHOME."/I/IForm.php";
-require_once OFMHOME."/App/Processor.php";
+require_once OFMHOME."/App/FormLexer.php";
+require_once OFMHOME."/App/FormParser.php";
 
 
 /**
@@ -96,14 +97,16 @@ class Form implements \OFM\Interfaces\IForm
 		$return .= ($this->id) ? 'id="'.$this->id.'"' : null;
 		$return .= '>';
 
-		try {
-			$p = new Processor();
-			$this->content = $p->parse($this->content);	
+        try {
+            $lex = new \OFM\App\FormLexer();
+            $toks = $lex->tokenize($this->content);
+            $par = new \OFM\App\FormParser($toks);
+            $par->parse();
+            $return .= $par->output(false);	
 		}catch(FormException $e) {
 			$this->content = $e->getMessage();
 		}
 		
-		$return .= $this->content;
 		$return .= "</form>";
 	    return $return;
 	}
