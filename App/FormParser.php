@@ -43,13 +43,18 @@ class FormParser implements \OFM\Interfaces\IParser
         }
         return 0;
     }
-    public function output()
+    public function output($immediate = true)
     {
+        $output = '';
         foreach($this->elems as $elem) {
-            ob_start();
-            echo $elem;
-            ob_end_flush();
+            if($immediate) {
+                ob_start();
+                echo $elem;
+                ob_end_flush();
+            } else {
+                $output .= $elem;
+            }
         }
-        return 0;
+        return $immediate ? 0 : $output;
     }
 }
