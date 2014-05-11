@@ -19,7 +19,7 @@ Syntax
 
 Default input with a label:
 ```
-(input ["label of the input"])
+(input label of the input)
 ```
 
 Specifying the input's type:
