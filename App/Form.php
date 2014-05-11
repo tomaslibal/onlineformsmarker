@@ -102,14 +102,11 @@ class Form implements \OFM\Interfaces\IForm
             $toks = $lex->tokenize($this->content);
             $par = new \OFM\App\FormParser($toks);
             $par->parse();
-            $return .= $par->output(false);
-			//$p = new Processor();
-			//$this->content = $p->parse($this->content);	
+            $return .= $par->output(false);	
 		}catch(FormException $e) {
 			$this->content = $e->getMessage();
 		}
 		
-		$return .= $this->content;
 		$return .= "</form>";
 	    return $return;
 	}
