@@ -2,20 +2,17 @@
 require_once '../App/Form.php';
 
 $testForm = "
-OTHER COMPONENTS IN A FORM
-++++++++++++++++++++++++++
 
-(input#name)@@Jane@@Name
-(input#familyname)@@Sunshine@@Family name
+(input #name @@Jane@@ Name)
+(input #familyname @@Sunshine@@ Family name)
 --
-(input:password)@@secret@@Your password
+(input:password @@secret@@ Your password)
 --
-(textarea#text)@@Welcome to my profile page@@Profile text
+(textarea #text @@Welcome to my profile page@@ Profile text)
 --
-(selectbox[f=female][m=male])Gender
+(selectbox[f=female][m=male] Gender)
 --
-(button:submit)Save!
-";
+(button :submit Save!)";
 
 $myForm = new \OFM\App\Form();
 $myForm->action = 'sendTo.php';
