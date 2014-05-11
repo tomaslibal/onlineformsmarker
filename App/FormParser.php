@@ -2,6 +2,9 @@
 namespace OFM\App;
 require_once OFMHOME."/I/IParser.php";
 
+require_once OFMHOME."/Components/Input.php";
+require_once OFMHOME."/Components/Button.php";
+
 class FormParser implements \OFM\Interfaces\IParser
 {
     private $objs = array();
