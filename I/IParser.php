@@ -1,7 +1,7 @@
 <?php
 namespace OFM\Interfaces;
 
-class IParser
+interface IParser
 {
     public function get_objs($objs);
     public function parse();
