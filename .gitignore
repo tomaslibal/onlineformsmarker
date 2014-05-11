@@ -1,0 +1,5 @@
+# ignore temp files, swap files and similar
+*.*~
+*.*#
+*.swp
+.DS_Store
