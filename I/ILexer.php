@@ -1,4 +1,5 @@
 <?php
+namespace OFM\Interfaces;
 
 interface ILexer
 {
