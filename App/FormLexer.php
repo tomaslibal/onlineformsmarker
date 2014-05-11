@@ -35,7 +35,7 @@ class FormLexer implements \OFM\Interfaces\ILexer
             $tmp = new Token();
             continue;
         }         
-	    if(($chr>47&&$chr<58)||($chr>64&&$chr<91)||($chr>94&&$chr<123)||($chr>44&&$chr<48)) {
+	    if(($chr>47&&$chr<58)||($chr>64&&$chr<91)||($chr>94&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
 	        $buf .= $ascii[$i];
 	        if($tok_started==0)$tok_started=1;
         } else if(($chr==32||$chr==9)&&$tok_started==1) {
@@ -43,6 +43,10 @@ class FormLexer implements \OFM\Interfaces\ILexer
             $buf = '';
             $tok_started=0;
             $this->num_tokens++;
+        }
+        // fall through - line with no element
+        if($chr==10&&$el_started!==1) {
+            continue;
         }
         // New line feed,")", or end of the stream close the object if it was open
         if(($chr==10||$chr==41||$i==$len)&&$el_started==1) {
