@@ -2,10 +2,11 @@
 namespace OFM\App;
 require_once OFMHOME."/I/IParser.php";
 
-class FormParser implements IParser
+class FormParser implements \OFM\Interfaces\IParser
 {
-    private $objs;
-    private $elems;
+    private $objs = array();
+    private $elems = array();
+
     public function __construct($objs)
     {
         if(count($objs)>0) $this->get_objs($objs);
@@ -25,7 +26,16 @@ class FormParser implements IParser
                 while(count($obj->tokens)>0) {
                     $t = array_shift($obj->tokens);
                     if(substr($t, 0, 1)=="#") $tmp->name = substr($t, 1);
-                    else $tmp->label .= $t;
+                    else $tmp->label .= $t.' ';
+                }
+                array_push($this->elems, $tmp);
+                break;
+            case 'button':
+                $tmp = new \OFM\Components\Button();
+                while(count($obj->tokens)>0) {
+                    $t = array_shift($obj->tokens);
+                    if(substr($t, 0, 1)=="#") $tmp->name = substr($t, 1);
+                    else $tmp->value .= $t.' ';
                 }
                 array_push($this->elems, $tmp);
                 break;
