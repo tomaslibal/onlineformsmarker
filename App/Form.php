@@ -49,6 +49,8 @@ class Form implements \OFM\Interfaces\IForm
 	public $name;
 	public $id;
 
+	public $standalone = false;
+
 	
 	public function loadString($content)
 	{
