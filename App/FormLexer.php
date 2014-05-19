@@ -34,10 +34,20 @@ class FormLexer implements \OFM\Interfaces\ILexer
             $el_started = 1;
             $tmp = new Token();
             continue;
-        }         
+        }
+        // if the character is in one of the following intervals, add it to
+        // the buffer:
+        // [47..58]
+        // [64..91]
+        // [94..123]
+        // [44..48]
+        // 35 => #       
 	    if(($chr>47&&$chr<58)||($chr>64&&$chr<91)||($chr>94&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
 	        $buf .= $ascii[$i];
-	        if($tok_started==0)$tok_started=1;
+            if($tok_started==0)$tok_started=1;
+            // if the char is a new line feed or semicolon
+            // and the token has been started, close/finalize the token,
+            // push the buffer into the array of tokens and clear the buffer
         } else if(($chr==32||$chr==9)&&$tok_started==1) {
             array_push($tokens,$buf);
             $buf = '';
