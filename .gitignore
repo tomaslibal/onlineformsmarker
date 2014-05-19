@@ -6,3 +6,5 @@
 .DS_Store
 # ignore local node modules
 node_modules/
+# ignore SASS cache
+.sass-cache/
