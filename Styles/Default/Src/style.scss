@@ -1,0 +1,54 @@
+//
+//
+//
+form {
+
+    // Layout
+    box-sizing: border-box;
+    margin: 20px 10px;
+    overflow: hidden;
+    // Dimensions
+    width: 100%;
+    // Properties
+    font-family: sans-serif;
+
+    h1 {
+    }
+
+    label {
+        // Layout
+        clear: left;
+        float: left;
+        display: block;
+        // Dimensions
+        width: 180px;
+        // Properties
+    }
+
+    input {
+        // Layout
+        float: left;
+        padding: 0 10px;
+        margin: 10px;
+        // Dimensions
+        min-height: 35px;
+        // Properties
+        border: 1px solid black;
+        font-size: 120%;
+    }
+
+    button {
+        // Layout
+        clear: left;
+        display: block;
+        float: left;
+        padding: 0 10px;
+        // Dimensions
+        height: 35px;
+        // Properties
+    }
+
+    @media screen only and (min-width: 620px),
+    screen only and (min-device-width: 620px) {
+    }
+}
