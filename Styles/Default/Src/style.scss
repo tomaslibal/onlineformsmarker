@@ -6,7 +6,9 @@ form {
     // Layout
     box-sizing: border-box;
     margin: 20px 10px;
+    overflow: hidden;
     // Dimensions
+    width: 100%;
     // Properties
     font-family: sans-serif;
 
@@ -26,6 +28,8 @@ form {
     input {
         // Layout
         float: left;
+        padding: 0 10px;
+        margin: 10px;
         // Dimensions
         min-height: 35px;
         // Properties
@@ -36,8 +40,11 @@ form {
     button {
         // Layout
         clear: left;
+        display: block;
         float: left;
+        padding: 0 10px;
         // Dimensions
+        height: 35px;
         // Properties
     }
 

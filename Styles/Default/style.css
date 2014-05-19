@@ -1,6 +1,8 @@
 form {
   box-sizing: border-box;
   margin: 20px 10px;
+  overflow: hidden;
+  width: 100%;
   font-family: sans-serif; }
   form label {
     clear: left;
@@ -9,9 +11,14 @@ form {
     width: 180px; }
   form input {
     float: left;
+    padding: 0 10px;
+    margin: 10px;
     min-height: 35px;
     border: 1px solid black;
     font-size: 120%; }
   form button {
     clear: left;
-    float: left; }
+    display: block;
+    float: left;
+    padding: 0 10px;
+    height: 35px; }

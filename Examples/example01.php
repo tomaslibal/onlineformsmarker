@@ -1,4 +1,13 @@
 <?php
+echo '<!DOCTYPE html>';
+?>
+<head>
+<meta charset="utf-8">
+<title>Example 01</title>
+<link rel="stylesheet" media="all" href="../Styles/Default/style.css">
+</head>
+<body>
+<?php
 require_once '../App/Form.php';
 
 $testForm = "(title My Test Form)
@@ -12,3 +21,5 @@ $myForm->action = 'sendTo.php';
 $myForm->loadString($testForm);
 echo $myForm;
 ?>
+</body>
+</html>
