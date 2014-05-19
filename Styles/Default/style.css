@@ -1,0 +1,17 @@
+form {
+  box-sizing: border-box;
+  margin: 20px 10px;
+  font-family: sans-serif; }
+  form label {
+    clear: left;
+    float: left;
+    display: block;
+    width: 180px; }
+  form input {
+    float: left;
+    min-height: 35px;
+    border: 1px solid black;
+    font-size: 120%; }
+  form button {
+    clear: left;
+    float: left; }
