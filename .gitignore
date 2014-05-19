@@ -4,3 +4,5 @@
 # ignore vim's swap files
 *.swp
 .DS_Store
+# ignore local node modules
+node_modules/
