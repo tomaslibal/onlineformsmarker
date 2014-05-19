@@ -1,7 +1,8 @@
 <?php
 require_once '../App/Form.php';
 
-$testForm = "(input #username Username)
+$testForm = "(title My Test Form)
+    (input #username Username)
 (input #email Email)
 (input #password Your password)
 (button Register me!)";
