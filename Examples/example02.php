@@ -2,18 +2,18 @@
 require_once '../App/Form.php';
 
 $testForm = "
-TEST FORM
-++++++++++++++++++++++++++
-
-(input)Username
-(input)Email
-(input:password)Your password
-
-(button)Register me!
-";
+(input #name @@Jane@@ Name)
+(input #familyname @@Sunshine@@ Family name)
+--
+(input:password @@secret@@ Your password)
+--
+(textarea #text @@Welcome to my profile page@@ Profile text)
+--
+(selectbox[f=female][m=male] Gender)
+--
+(button :submit Save!)";
 
 $myForm = new \OFM\App\Form();
-$myForm->standalone = true;
 $myForm->action = 'sendTo.php';
 $myForm->loadString($testForm);
 echo $myForm;

@@ -1,22 +1,21 @@
 <?php
 namespace OFM\App;
+
+
 /**
-* formElement class: basic building block for every form's element class.
-* This class could be even abstract...It will never be instatiated
+* FormElement class. The basic building block for every form's element class.
+* (This class could be even abstract...It will never be instatiated)
 *
 * @author Tom.
-* @package OnlineFormsMarker
+* @package onlineformsmarker
 *
-* @version 0.0.0
+* @version 0.1.0
 */
 class FormElement
 {
     public $type;
-    public $id;
+    public $id; // every form HTML element can has an ID
     
-    public function __construct()
-    {
-    }
     /**
      * Important part of the class! Each child of this class will have to implement __toString() method to give HTML code of the element
      */
@@ -25,7 +24,7 @@ class FormElement
         throw new FormException("not yet implemented");        
     }
     
-    public function __set($name, $value)
+    final public function __set($name, $value)
     {
         $this->$name = $value;
     }

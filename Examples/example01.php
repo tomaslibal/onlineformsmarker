@@ -1,16 +1,11 @@
 <?php
 require_once '../App/Form.php';
 
-$testForm = "
-TEST FORM
-++++++++++++++++++++++++++
-
-(input)Username
-(input)Email
-(input:password)Your password
-
-(button)Register me!
-";
+$testForm = "(title My Test Form)
+    (input #username Username)
+(input #email Email)
+(input #password Your password)
+(button Register me!)";
 
 $myForm = new \OFM\App\Form();
 $myForm->action = 'sendTo.php';

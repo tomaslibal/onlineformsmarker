@@ -6,7 +6,9 @@ namespace OFM\App;
 
 
 /**
- * Defines a Constant
+ * A helper function to define a constant if the constant's name
+ * is not yet in use. Otherwise returns just false.
+ *
  * @param string $name Name of the constant
  * @param string $value Value of the constant
  * @return bool
@@ -19,18 +21,28 @@ function defineConst($name, $value)
 // Environment settings
 defineConst("OFM", "OFM"); // online forms marker
 defineConst("OFMDS", DIRECTORY_SEPARATOR);
-defineConst("OFMWWW", "onlineformsmarker");
-defineConst("OFMHOME", dirname(dirname(dirname(__FILE__))).OFMDS.OFMWWW);
+defineConst("OFMHOME", dirname(dirname(dirname(__FILE__))).OFMDS."onlineformsmarker");
 
 
 require_once OFMHOME."/I/IForm.php";
-require_once OFMHOME."/App/Processor.php";
+require_once OFMHOME."/App/FormLexer.php";
+require_once OFMHOME."/App/FormParser.php";
 
+
+/**
+* The Form objects contain form's element as child objects in Form::$content.
+* The rendering is done by the magic funtion __toString() when echo is called
+* on the Form object which propagates the call to all child objects which
+* have also the __toString() method implemented.
+*
+* @package onlineformsmarker
+* @version 0.5.0
+*/
 class Form implements \OFM\Interfaces\IForm
 {
 	private $content; 
 
-	
+	// form attributes
 	public $action;
 	public $method;
 	public $enctype;
@@ -87,28 +99,17 @@ class Form implements \OFM\Interfaces\IForm
 		$return .= ($this->id) ? 'id="'.$this->id.'"' : null;
 		$return .= '>';
 
-		$p = new Processor();
-		$this->content = $p->parse($this->content);
-		$return .= $this->content;
-		$return .= "<div class=\"ofm-end\"></div></form>";
-	
-		if ($this->standalone) {
-			return $this->wrapper($return);
-		}else {
-			return $return;
-		}	 
-	} 
-
-	protected function wrapper($formHtml)
-	{
-		return "<!DOCTYPE html>\n
-		<html>\n
-		<head>\n
-		<meta charset=\"utf-8\">
-		<link rel=\"stylesheet\" media=\"screen\" href=\"/".OFMWWW."/Themes/normalize.css\">
-		<link rel=\"stylesheet\" media=\"screen\" href=\"/".OFMWWW."/Themes/default.css\">
-		<title>".$this->name."</title>
-		</head>\n
-		<body>".$formHtml."</body></html>";
+        try {
+            $lex = new \OFM\App\FormLexer();
+            $toks = $lex->tokenize($this->content);
+            $par = new \OFM\App\FormParser($toks);
+            $par->parse();
+            $return .= $par->output(false);	
+		}catch(FormException $e) {
+			$this->content = $e->getMessage();
+		}
+		
+		$return .= "</form>";
+	    return $return;
 	}
 }

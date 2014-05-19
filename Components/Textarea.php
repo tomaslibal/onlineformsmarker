@@ -9,6 +9,7 @@ class Textarea extends \OFM\App\FormElement
     public $rows;
     public $data;                              // The content of the textarea
     public $caption;
+    public $name;
     
     public function __toString()
     {

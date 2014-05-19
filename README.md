@@ -1,9 +1,7 @@
 OnlineFormsMarker
 =================
 
-This is a rendering app for my form markup syntax. It takes input in textual form or
-the OOP methods of the form and components can be used to design and compose the form. 
-The result is rendered as HTML code.
+This is a simple rendering app for a custom form markup syntax. It takes input in textual form (the form markup syntax) and renders a HTML output.
 
 Example
 -------------
@@ -12,56 +10,91 @@ Example
 <br>Input-as-text example demonstrating the basic syntax and use
 <br>Result in a web browser running on a local server (some CSS was used)
 
+**The screenshot shows an outdated syntax, see below for the latest version of the syntax**
+
 Syntax
 ------
 
 ### Input
 
 Default input with a label:
-<pre><code>(input)LABEL_OF_THE_INPUT
-</code></pre>
+```
+(input label of the input)
+```
 
 Specifying the input's type:
-<pre><code>(input:INPUT_TYPE)
-</code></pre>
+
+```
+(input :INPUT_TYPE)
+```
+
 INPUT_TYPE corresponds to the HTML valid `<input type="INPUT_TYPE">` types.
 
 Specifying the input's ID:
-<pre><code>(input#INPUT_ID)</code></pre>
+
+```
+(input #INPUT_ID)
+```
 
 Predefined value of an input:
-<pre><code>(input)@@VALUE@@Your name
-</code></pre>
 
-VALUE can be any text.
+```
+(input @@Value can be specified@@ Your name)
+```
+
+Value can be any text.
 
 ### Textarea
 
 Default (empty) textarea:
-<pre><code>(textarea)
-</code></pre>
+```
+(textarea)
+```
 
 Content of the textarea:
-<pre><code>(textarea)@@CONTENT HERE@@
-</code></pre>
+```
+(textarea @@CONTENT HERE@@)
+```
 
 Caption of the textarea:
-<pre><code>(textarea)LABEL_HERE</code></pre>
+
+```
+(textarea LABEL_HERE)
+```
 
 ### Button
 
 Default button:
-<pre><code>(button)</code></pre>
+```
+(button)
+```
 
 Button type:
-<pre><code>(button:BUTTON_TYPE)</code></pre>
+
+```
+(button :BUTTON_TYPE)
+```
+
 BUTTON_TYPE corresponds to valid HTML `<button type="BUTTON_TYPE">` types.
+
+### Selectbox
+
+Default:
+```
+(selectbox)
+```
+
+Specifying the options of the selectbox:
+
+```
+(selectbox [opt1=val1] [opt2=val2]...[optN=valN])
+```
 
 ### Title
 
-One line of text with at leat 3 `+` symbols on the line beneath
-<pre><code>TITLE
-+++++++++++++++++</code></pre>
+```
+# Title of several words...
+```
 
 Form class
 ----------
@@ -73,8 +106,10 @@ The class is located at onlineformsmarker/common/form.php
 * action `$form->action`
 * method `$form->method`
 * enctype `$form->enctype`
-* name `$form->name` (not all DOCTYPES support this attribute)
+* name `$form->name` (note that not all DOCTYPES support this attribute)
 * id `$form->id`
 
 ------------------
-Version March 15, 2013
+Versions:
+- May 11, 2014 v0.2-pre
+- May 22, 2013 v0.1-legacy
