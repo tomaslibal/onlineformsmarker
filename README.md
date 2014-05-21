@@ -10,8 +10,6 @@ Example
 <br>Input-as-text example demonstrating the basic syntax and use
 <br>Result in a web browser running on a local server (some CSS was used)
 
-**The screenshot shows an outdated syntax, see below for the latest version of the syntax**
-
 Syntax
 ------
 
