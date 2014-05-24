@@ -13,42 +13,54 @@ form {
     font-family: sans-serif;
 
     h1 {
+        margin: 0 10px 30px 10px;
     }
 
     label {
         // Layout
-        clear: left;
-        float: left;
+        clear:   left;
+        float:   left;
         display: block;
+        margin:  20px 10px 10px;
         // Dimensions
-        width: 180px;
+        width:   180px;
         // Properties
     }
 
     input {
         // Layout
-        float: left;
-        padding: 0 10px;
-        margin: 10px;
+        float:      left;
+        padding:    0 10px;
+        margin:     10px;
         // Dimensions
         min-height: 35px;
         // Properties
-        border: 1px solid black;
-        font-size: 120%;
+        border:     1px solid black;
+        font-size:  120%;
     }
 
     button {
         // Layout
-        clear: left;
+        clear:   left;
         display: block;
-        float: left;
+        float:   left;
+        margin:  10px;
         padding: 0 10px;
         // Dimensions
-        height: 35px;
+        height:  35px;
         // Properties
+        cursor: pointer;
     }
 
     @media screen only and (min-width: 620px),
     screen only and (min-device-width: 620px) {
+        label, input, button { float: none; }
+        
+        label {
+            // Layout
+            margin-bottom: 0px;
+            // Dims
+            // Props
+        }
     }
 }
