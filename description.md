@@ -16,7 +16,7 @@ Set `A = {a, b, c, d, e}` is as follows:
 
 - a space, semicolon, tab
 - b newline feed
-- c ascii text [35, 44..58, 64..91, 94..123]
+- c ascii text [35, 44..59, 64..91, 94..123]
 - d open paren
 - e close paren
 
