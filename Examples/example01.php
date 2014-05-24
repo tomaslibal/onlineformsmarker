@@ -13,7 +13,7 @@ require_once '../App/Form.php';
 $testForm = "(title My Test Form)
     (input #username Username)
 (input #email Email)
-(input #password Your password)
+(input :password #password Your password)
 (button Register me!)";
 
 $myForm = new \OFM\App\Form();
