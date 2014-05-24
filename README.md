@@ -91,8 +91,10 @@ Specifying the options of the selectbox:
 ### Title
 
 ```
-# Title of several words...
+(title Title of several words)
 ```
+
+Title is specified in a bracket-notation as well with the keyword "title" followed by text.
 
 Form class
 ----------
