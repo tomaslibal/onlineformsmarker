@@ -31,6 +31,7 @@ class FormParser implements \OFM\Interfaces\IParser
                 while(count($obj->tokens)>0) {
                     $t = array_shift($obj->tokens);
                     if(substr($t, 0, 1)=="#") $tmp->name = substr($t, 1);
+                    else if(substr($t, 0, 1)==":") $tmp->inputType = substr($t, 1);
                     else if(substr($t, 0, 2)=="@@") $tmp->value = substr($t, 2, strlen($t)-4);
                     else $tmp->label .= $t.' ';
                 }
