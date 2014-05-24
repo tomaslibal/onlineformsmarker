@@ -3,7 +3,8 @@ echo '<!DOCTYPE html>';
 ?>
 <head>
 <meta charset="utf-8">
-<title>Example 01</title>
+<title>Example 02</title>
+<link rel="stylesheet" media="all" href="../Styles/normalize.css">
 <link rel="stylesheet" media="all" href="../Styles/Default/style.css">
 </head>
 <body>
@@ -15,7 +16,7 @@ $testForm = "
 (input #name @@Jane@@ Name)
 (input #familyname @@Sunshine@@ Family name)
 --
-(input:password @@secret@@ Your password)
+(input :password @@secret@@ Your password)
 --
 (textarea #text @@Welcome to my profile page@@ Profile text)
 --
