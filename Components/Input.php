@@ -41,3 +41,4 @@ class Input extends \OFM\App\FormElement
         return ($this->label) ? "<label for=\"{$this->name}\">{$this->label}</label>" : null;        
     }
 }
+?>

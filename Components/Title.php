@@ -12,3 +12,4 @@ class Title extends \OFM\App\FormElement
         return "<h1>{$this->value}</h1>\n";
     }
 }
+?>

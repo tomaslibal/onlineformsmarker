@@ -36,3 +36,4 @@ class Selectbox extends \OFM\App\FormElement
 		return $html.'</select>';
 	}
 }
+?>

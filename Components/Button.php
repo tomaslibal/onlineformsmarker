@@ -14,3 +14,4 @@ class Button extends \OFM\App\FormElement
         return "<button id=\"{$this->id}\" type=\"{$this->type}\" name=\"{$this->name}\">{$this->value}</button>";
     }
 }
+?>

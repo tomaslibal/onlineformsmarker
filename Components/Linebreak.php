@@ -10,3 +10,4 @@ class Linebreak extends \OFM\App\FormElement
 		return "<br>";
 	}
 }
+?>
