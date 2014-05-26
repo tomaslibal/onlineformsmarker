@@ -12,7 +12,7 @@ class FormParser implements \OFM\Interfaces\IParser
     private $objs = array();
     private $elems = array();
 
-    public function __construct($objs)
+    public function __construct($objs = array())
     {
         if(count($objs)>0) $this->get_objs($objs);
     }
