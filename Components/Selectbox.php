@@ -8,6 +8,7 @@ class Selectbox extends \OFM\App\FormElement
 	public $name;
 	public $title;
 	public $values = array();
+	public $defaultOption = "Select";
 
 	public function __construct($name = null, $values = array())
 	{
@@ -27,13 +28,10 @@ class Selectbox extends \OFM\App\FormElement
 
 	public function __toString()
 	{
-		$html = $this->renderLabel().'<select name="'.$this->name.'"><option value="">please select</option>';
+		$html = $this->renderLabel().'<select name="'.$this->name.'"><option value="">'.$this->defaultOption.'</option>';
 		
-		preg_match_all("/\[[\w]+=[\w]+\]/i", $this->values, $options);		
-
-		foreach($options[0] as $key=>$option) {			
-			preg_match("/\[([\w]+)=([\w]+)\]/i", $option, $tmp);			
-			$html .= '<option value="'.$tmp[1].'">'.$tmp[2].'</option>';
+		foreach($this->values as $opt) {			
+			$html .= '<option value="'.$opt[1].'">'.$opt[0].'</option>';
 		}		
 		return $html.'</select>';
 	}
