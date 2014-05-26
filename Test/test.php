@@ -10,7 +10,10 @@ $totFail = 0;
 
 // Load test cases
 
-$cases = array('formLexer'=>'FormLexer_TestCase');
+$cases = array(
+	'formLexer'=>'FormLexer_TestCase',
+	'formParser'=>'FormParser_TestCase',
+	'input'=>'Input_TestCase');
 foreach($cases as $c=>$f) {
 	include_once $f . ".php";
 }
@@ -37,3 +40,4 @@ echo "Total tests:    $totTests\n";
 echo "Total passing:  $totPass\n";
 echo "Totatl failing: $totFail\n";
 
+?>
