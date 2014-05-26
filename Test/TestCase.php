@@ -15,7 +15,7 @@ class TestCase
 			if ($a === $b) 
 				$this->passed++;
 			else
-				array_push($this->errMsgs, $msg);
+				{array_push($this->errMsgs, $msg);echo "Failed: ".$msg."\n";}
 		}catch(Exception $e) {
 			array_push($this->errors, $e);
 		}
