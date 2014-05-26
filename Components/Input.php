@@ -26,9 +26,9 @@ class Input extends \OFM\App\FormElement
             $this->id = md5(mt_rand());
         } 
         if(!empty($this->name)) {
-            $this->name = "name=\"{$this->name}\"";
+            $this->name = "name=\"{$this->name}\" ";
         }        
-        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" {$this->name} id=\"{$this->id}\">";
+        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" {$this->name}id=\"{$this->id}\">";
     }
     
     /**
