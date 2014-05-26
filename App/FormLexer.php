@@ -42,7 +42,7 @@ class FormLexer implements \OFM\Interfaces\ILexer
         // [94..123]
         // [44..48]
         // 35 => #       
-	    if(($chr>47&&$chr<59)||($chr>63&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
+	    if(($chr>47&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
 	        $buf .= $ascii[$i];
             if($tok_started==0)$tok_started=1;
             // if the char is a space or semicolon or tab
