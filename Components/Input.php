@@ -21,11 +21,14 @@ class Input extends \OFM\App\FormElement
     * @return string
     */
     public function __toString()
-    {    
-        if(empty($this->name)) {
-            $this->name = $this->id;
+    {   
+        if(empty($this->id)) {
+            $this->id = md5(mt_rand());
+        } 
+        if(!empty($this->name)) {
+            $this->name = "name=\"{$this->name}\"";
         }        
-        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" name=\"{$this->name}\" id=\"{$this->id}\">";
+        return $this->renderLabel()."<input type=\"{$this->inputType}\" value=\"{$this->value}\" {$this->name} id=\"{$this->id}\">";
     }
     
     /**
