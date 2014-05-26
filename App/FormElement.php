@@ -1,17 +1,16 @@
 <?php
 namespace OFM\App;
 
-
 /**
-* FormElement class. The basic building block for every form's element class.
-* (This class could be even abstract...It will never be instatiated)
+* Abstract FormElement class. The basic building block for every form's element
+* class.
 *
-* @author Tom.
 * @package onlineformsmarker
+* @subpackage App
 *
-* @version 0.1.0
+* @version 0.1.1
 */
-class FormElement
+abstract class FormElement
 {
     public $type;
     public $id; // every form HTML element can has an ID
@@ -29,3 +28,4 @@ class FormElement
         $this->$name = $value;
     }
 }
+?>
