@@ -38,11 +38,11 @@ class FormLexer implements \OFM\Interfaces\ILexer
         // if the character is in one of the following intervals, add it to
         // the buffer:
         // [47..59]  58 ":"
-        // [64..91] 64=@
+        // [64..94] 64=@, 91=[, 93=]
         // [94..123]
         // [44..48]
         // 35 => #       
-	    if(($chr>47&&$chr<59)||($chr>63&&$chr<91)||($chr>94&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
+	    if(($chr>47&&$chr<59)||($chr>63&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
 	        $buf .= $ascii[$i];
             if($tok_started==0)$tok_started=1;
             // if the char is a space or semicolon or tab
