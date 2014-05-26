@@ -52,6 +52,26 @@ form {
         cursor: pointer;
     }
 
+    textarea {
+        // Layout
+        float:      left;
+        margin:     10px;
+        // Dims
+        min-width:  270px;
+        min-height: 220px;
+        // Props
+    }
+
+    select {
+        // Layout
+        float: left;
+        clear: left;
+        margin: 10px;
+        // Dims
+        min-width: 100px;
+        // Props
+    }
+
     @media screen only and (min-width: 620px),
     screen only and (min-device-width: 620px) {
         label, input, button { float: none; }

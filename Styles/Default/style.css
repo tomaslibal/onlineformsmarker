@@ -27,6 +27,16 @@ form {
     padding: 0 10px;
     height: 35px;
     cursor: pointer; }
+  form textarea {
+    float: left;
+    margin: 10px;
+    min-width: 270px;
+    min-height: 220px; }
+  form select {
+    float: left;
+    clear: left;
+    margin: 10px;
+    min-width: 100px; }
   @media screen only and (min-width: 620px), screen only and (min-device-width: 620px) {
     form label, form input, form button {
       float: none; }
