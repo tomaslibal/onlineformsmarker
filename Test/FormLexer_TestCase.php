@@ -25,3 +25,4 @@ class FormLexer_TestCase extends \OFM\Test\TestCase
 		return $this->getInfo();
 	}
 }
+?>

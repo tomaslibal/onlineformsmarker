@@ -26,3 +26,4 @@ class FormParser_TestCase extends \OFM\Test\TestCase
 		return $this->getInfo();
 	}
 }
+?>

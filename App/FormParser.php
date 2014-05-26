@@ -81,3 +81,4 @@ class FormParser implements \OFM\Interfaces\IParser
         return $immediate ? 0 : $output;
     }
 }
+?>
