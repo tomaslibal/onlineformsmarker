@@ -22,6 +22,8 @@ $testForm = "
 --
 (selectbox[f=female][m=male] Gender)
 --
+(selectbox [opt1=val1] [opt2=val2] selectbox example)
+--
 (button :submit Save!)";
 
 $myForm = new \OFM\App\Form();
