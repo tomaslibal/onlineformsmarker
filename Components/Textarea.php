@@ -13,7 +13,11 @@ class Textarea extends \OFM\App\FormElement
     
     public function __toString()
     {
-        return "<label for=\"{$this->id}\">{$this->caption}</label><textarea name=\"{$this->name}\" id=\"{$this->id}\">{$this->data}</textarea>\n";
+    	$idAttr   = empty($this->id) ? null : " id=\"{$this->id}\"";
+    	$nameAttr = empty($this->name) ? null : " name=\"{$this->name}\"";
+    	$label    = empty($this->name) ? null : "<label for=\"{$this->name}\">{$this->caption}</label>";
+    	
+        return "{$label}<textarea{$nameAttr}{$idAttr}>{$this->data}</textarea>\n";
     }
 }
 ?>
