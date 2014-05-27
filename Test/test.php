@@ -13,7 +13,11 @@ $totFail = 0;
 $cases = array(
 	'formLexer'=>'FormLexer_TestCase',
 	'formParser'=>'FormParser_TestCase',
-	'input'=>'Input_TestCase');
+	'input'=>'Input_TestCase',
+	'button'=>'Button_TestCase',
+	'selectbox'=>'Selectbox_TestCase',
+	'textarea'=>'Textarea_TestCase',
+	'title'=>'Title_TestCase');
 foreach($cases as $c=>$f) {
 	include_once $f . ".php";
 }
