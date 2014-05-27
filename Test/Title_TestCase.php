@@ -5,7 +5,7 @@ include_once 'TestCase.php';
 include_once '../App/config.php';
 include_once '../Components/Title.php';
 
-class Button_TestCase extends \OFM\Test\TestCase
+class Title_TestCase extends \OFM\Test\TestCase
 {
 	private $obj;
 
@@ -21,6 +21,19 @@ class Button_TestCase extends \OFM\Test\TestCase
 
 	public function run()
 	{
+
+		// default
+		$str = "<h1></h1>\n";
+		$out = $this->obj->__toString();
+		$this->assertEquals(0, strcmp($str, $out), "Default options __toString()");
+
+		// value
+		$str = "<h1>Hello World!</h1>\n";
+		$this->obj = $this->renewObj();
+		$this->obj->value = "Hello World!";
+		$out = $this->obj->__toString();
+		$this->assertEquals(0, strcmp($str, $out), "Default options __toString()");		
+
 		return $this->getInfo();
 	}
 }
