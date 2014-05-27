@@ -4,14 +4,18 @@ require_once OFMHOME."/App/FormElement.php";
 
 class Button extends \OFM\App\FormElement
 {
-    public $type = "button";    
+    public $type;    
     public $value;
     public $name;
     public $disabled;
     
     public function __toString()
     {
-        return "<button id=\"{$this->id}\" type=\"{$this->type}\" name=\"{$this->name}\">{$this->value}</button>";
+    	$idAttr   = empty($this->id) ? null : " id=\"{$this->id}\"";
+    	$typeAttr = empty($this->type) ? null : " type=\"{$this->type}\"";
+    	$nameAttr = empty($this->name) ? null : " name=\"{$this->name}\"";
+
+        return "<button{$idAttr}{$typeAttr}{$nameAttr}>{$this->value}</button>";
     }
 }
 ?>
