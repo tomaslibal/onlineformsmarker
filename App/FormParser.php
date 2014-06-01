@@ -8,6 +8,20 @@ require_once OFMHOME."/Components/Textarea.php";
 require_once OFMHOME."/Components/Title.php";
 require_once OFMHOME."/Components/Selectbox.php";
 
+/**
+ * This is a parser in the process of:
+ * 
+ * tokenize -> parse -> render
+ *
+ * Currently, it has an array of token objects injected and this array of objects
+ * is processed such that from each known token a new FormElement object is 
+ * created.
+ *
+ * This means that the FormElement objects are coupled inside the parse() method.
+ * Ideally, the Parser would use more loose coupling. The "instantiator" check
+ * and methods could be parts of the FormElements themselve. This would make it
+ * easier to test the methods.
+ */
 class FormParser implements \OFM\Interfaces\IParser
 {
     private $objs = array();
