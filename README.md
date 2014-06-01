@@ -6,7 +6,7 @@ This is a simple rendering app for a custom form markup syntax. It takes input i
 Example
 -------------
 
-![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/OFM_Syntax-0.2.0.png "Example of OnlineFormsMarker")
+![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/ofm-example-01.jpg "Example of OnlineFormsMarker")
 <br>Input-as-text example demonstrating the basic syntax and use
 <br>Result in a web browser running on a local server (some CSS was used)
 
@@ -99,7 +99,7 @@ Title is specified in a bracket-notation as well with the keyword "title" follow
 Form class
 ----------
 
-The class is located at onlineformsmarker/common/form.php
+The class is located at onlineformsmarker/App/Form.php
 
 ### Public properties
 
