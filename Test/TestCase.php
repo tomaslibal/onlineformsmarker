@@ -8,14 +8,17 @@ class TestCase
 	private $errors = array();
 	private $errMsgs = array();
 
-	public function assertEquals($a, $b, $msg = '')
+	public function assertEquals($a, $b, $msg = '', $file = null, $line = null)
 	{
 		$this->tests++;
 		try {
 			if ($a === $b) 
 				$this->passed++;
-			else
-				{array_push($this->errMsgs, $msg);echo "Failed: ".$msg."\n";}
+			else {
+				array_push($this->errMsgs, $msg);
+				echo "Failed: ".$msg;
+				if ($file) echo " in ".$file.":".$line."\n"; else echo "\n";
+			}
 		}catch(Exception $e) {
 			array_push($this->errors, $e);
 		}
