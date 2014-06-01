@@ -36,7 +36,7 @@ class Form implements \OFM\Interfaces\IForm
 	private $parser = null;
 
 	//
-	public function __construct($lexer, $parser)
+	public function __construct(\OFM\Interfaces\ILexer $lexer, \OFM\Interfaces\IParser $parser)
 	{
 		$this->lexer  = $lexer;
 		$this->parser = $parser;
