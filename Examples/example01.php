@@ -17,7 +17,9 @@ $testForm = "(title My Test Form)
 (input :password #password Your password)
 (button Register me!)";
 
-$myForm = new \OFM\App\Form();
+$lexer  = new \OFM\App\FormLexer();
+$parser = new \OFM\App\FormParser();
+$myForm = new \OFM\App\Form($lexer, $parser);
 $myForm->action = 'sendTo.php';
 $myForm->loadString($testForm);
 echo $myForm;
