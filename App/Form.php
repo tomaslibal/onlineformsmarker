@@ -31,6 +31,16 @@ class Form implements \OFM\Interfaces\IForm
 
 	public $standalone = false;
 
+	// dependencies
+	private $lexer = null;
+	private $parser = null;
+
+	//
+	public function __construct($lexer, $parser)
+	{
+		$this->lexer  = $lexer;
+		$this->parser = $parser;
+	}
 	
 	public function loadString($content)
 	{
@@ -80,11 +90,10 @@ class Form implements \OFM\Interfaces\IForm
 		$return .= '>';
 
         try {
-            $lex = new \OFM\App\FormLexer();
-            $toks = $lex->tokenize($this->content);
-            $par = new \OFM\App\FormParser($toks);
-            $par->parse();
-            $return .= $par->output(false);	
+            $toks = $this->lexer->tokenize($this->content);
+            $this->parser->get_objs($toks);
+            $this->parser->parse();
+            $return .= $this->parser->output(false);	
 		}catch(FormException $e) {
 			$this->content = $e->getMessage();
 		}
@@ -93,3 +102,4 @@ class Form implements \OFM\Interfaces\IForm
 	    return $return;
 	}
 }
+?>

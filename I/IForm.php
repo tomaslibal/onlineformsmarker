@@ -3,6 +3,8 @@ namespace OFM\Interfaces;
 
 interface IForm
 {
+	public function __construct($lexer, $parser); // dependency injection: lexer and parser
+	
 	public function loadString($content); // loads string and makes a form out of it
 	public function loadFile($path);
 	public function loadXML($path);
