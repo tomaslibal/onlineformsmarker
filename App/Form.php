@@ -5,9 +5,6 @@ namespace OFM\App;
 require_once 'config.php';
 
 require_once OFMHOME."/I/IForm.php";
-require_once OFMHOME."/App/FormLexer.php";
-require_once OFMHOME."/App/FormParser.php";
-
 
 /**
 * The Form objects contain form's element as child objects in Form::$content.
