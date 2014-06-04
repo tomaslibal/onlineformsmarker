@@ -9,7 +9,7 @@ echo '<!DOCTYPE html>';
 </head>
 <body>
 <?php
-require_once '../App/Form.php';
+require_once '../App/FormFactory.php';
 
 $testForm = "(title My Test Form)
     (input #username Username)
@@ -17,12 +17,7 @@ $testForm = "(title My Test Form)
 (input :password #password Your password)
 (button Register me!)";
 
-$lexer  = new \OFM\App\FormLexer();
-$parser = new \OFM\App\FormParser();
-$myForm = new \OFM\App\Form($lexer, $parser);
-$myForm->action = 'sendTo.php';
-$myForm->loadString($testForm);
-echo $myForm;
+echo \OFM\App\FormFactory::quick($testForm);
 ?>
 </body>
 </html>
