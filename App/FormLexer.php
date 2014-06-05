@@ -53,6 +53,10 @@ class FormLexer implements \OFM\Interfaces\ILexer
         return $code; 
     }
 
+    private function test_mb_functions() {
+        throw new \Exception("not yet implemented");
+    }
+
     public function tokenizeUtf8($str) {
         $len = mb_strlen($str);
         return $this->scanner($str, false, $len);
@@ -81,22 +85,29 @@ class FormLexer implements \OFM\Interfaces\ILexer
             }
             // if the character is in one of the following intervals, add it to
             // the buffer:
-            // [47..59]  58 ":"
+            // [47..59]  58 ":" 59: ";"
             // [64..94] 64=@, 91=[, 93=]
             // [94..123]
             // [44..48]
-            // 35 => #       
-            if(($chr>47&&$chr<123)||($chr>44&&$chr<48)||$chr==35) {
+            // 35 => #
+            if(($chr>32&&$chr<127&&$chr!==41)) {
                 $buf .= $str[$i];
                 if($tok_started==0)$tok_started=1;
             // UNICODE CHARACTERS
-            }else if($chr>180) {
+            // 0x0020-0x00BB
+            // 0x00BC-0x017E
+            // 0x017F-0x1EF3
+            // 0x2013-0xFB02
+            }else if(($chr>127&&$chr<=0x00BB)
+                ||($chr>=0x00BC&&$chr<=0x017E)
+                ||($chr>=0x017F&&$chr<=0x1EF3)
+                ||($chr>=0x2013&&$chr<=0xFB02)) {
                 $buf .= mb_convert_encoding('&#'.$chr.';', 'UTF-8', 'HTML-ENTITIES');
 
-            // if the char is a space or semicolon or tab
+            // if the char is a space or a tab,
             // and the token has been started, close/finalize the token,
             // push the buffer into the array of tokens and clear the buffer
-            }else if(($chr==32||$chr==59||$chr==9)&&$tok_started==1) {
+            }else if(($chr==32||$chr==9)&&$tok_started==1) {
                 array_push($tokens,$buf);
                 $buf = '';
                 $tok_started=0;
