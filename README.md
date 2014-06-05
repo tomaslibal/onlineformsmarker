@@ -127,7 +127,7 @@ The class is located at onlineformsmarker/App/Form.php
 
 ### Getting new Form object using FormFactory
 
-You can request a new instance of Form using the FormFactory static methods `create()` and `quick($string)`.
+You can request a new instance of Form using the FormFactory static methods `\OFM\App\FormFactory::create()` and `\OFM\App\FormFactory::quick($string)`.
 
 ## Requirements
 
@@ -138,3 +138,6 @@ You can request a new instance of Form using the FormFactory static methods `cre
 Versions:
 - May 11, 2014 v0.2-pre
 - May 22, 2013 v0.1-legacy
+
+Upcoming:
+- v0.3 will feature basic unicode support and general improvements (such as the FormFactory class) 
