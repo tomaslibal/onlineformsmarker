@@ -17,7 +17,10 @@ $cases = array(
 	'button'=>'Button_TestCase',
 	'selectbox'=>'Selectbox_TestCase',
 	'textarea'=>'Textarea_TestCase',
-	'title'=>'Title_TestCase');
+	'title'=>'Title_TestCase',
+	'formFactory'=>'FormFactory_TestCase'
+	);
+
 foreach($cases as $c=>$f) {
 	include_once $f . ".php";
 }
