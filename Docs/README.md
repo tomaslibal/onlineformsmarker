@@ -22,14 +22,25 @@ definiton to:
 
 In an article on Tumblr, [I posted](http://foundryof01.tumblr.com/post/90847847098/updated-finite-state-automaton-for-a-online-forms) about a Finite State Automaton which I have been experimenting with and whose implementation is more-or-less embedded in the current release of the Onlineformsmarker. 
 
-![screenshot of OFM 1](https://38.media.tumblr.com/147d391b14ef72d1fbec1c26e8b542f4/tumblr_n88rj74BFx1sj6br7o1_500.png "Screenshot from the JFLAP program")
+![screenshot of OFM 1](http://38.media.tumblr.com/cea229e9751889803405d8fbdcdc7c87/tumblr_n88rj74BFx1sj6br7o1_r1_1280.png "Screenshot from the JFLAP program")
 Figure 1: Screenshot from the JFLAP program
 
-A draft version of the automaton is included in this folder in the `ofm_fa.jff` file.
+A draft version of the automaton is included in this folder in the `ofm_fa_norm.jff` file. The `ofm_fa.jff` is the old file and will probably be removed because it is somehow less practical and maybe even wrong.
+
+#### Alphabet set
+
+In the automaton the are 3 sets which altogether form the alphabet of this automaton:
+
+- a = { characters (like a,b,c,ø,ñ, etc.) and numbers }
+- b = { punctation marks (like comma, semicolon etc.) }
+- c = { space, tab } (whitespace)
 
 #### Tests
 
-It is easy to run a multiple input test in the JFLAP program with the selected automaton. This helps to test if the automaton accepts and rejects the inputs as expected. Here are a few examples using [the syntax](syntax.md) and a few non-OFM syntax sentences.
+It is easy to run a multiple input test in the JFLAP program with the selected 
+automaton. This helps to test if the automaton accepts and rejects the inputs 
+as expected. Here are a few examples using [the syntax](/tree/master/syntax.md)
+ and a few non-OFM syntax sentences.
 
 |       Input              |       Expected        |      Actual       |
 |:-------------------------|:----------------------|:------------------|
