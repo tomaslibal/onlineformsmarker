@@ -78,7 +78,7 @@ class FormLexer implements \OFM\Interfaces\ILexer
         for($i = 0; $i < $len; $i++) {
             $chr = ($ascii) ? ord($str[$i]) : $this->ordutf8($str, $i);
             // "(" is a start of new object
-            if($chr==40){
+            if($chr==40&&$el_started!==1){
                 $el_started = 1;
                 $tmp = new Token();
                 continue;
@@ -90,6 +90,9 @@ class FormLexer implements \OFM\Interfaces\ILexer
             // [94..123]
             // [44..48]
             // 35 => #
+            // How to include ")" inside the element? 
+            // The parenthesses will probably have to be escaped with
+            // a backslash. 
             if(($chr>32&&$chr<127&&$chr!==41)) {
                 $buf .= $str[$i];
                 if($tok_started==0)$tok_started=1;
