@@ -25,7 +25,7 @@ In an article on Tumblr, [I posted](http://foundryof01.tumblr.com/post/908478470
 ![screenshot of OFM 1](http://38.media.tumblr.com/cea229e9751889803405d8fbdcdc7c87/tumblr_n88rj74BFx1sj6br7o1_r1_1280.png "Screenshot from the JFLAP program")
 Figure 1: Screenshot from the JFLAP program
 
-A draft version of the automaton is included in this folder in the `ofm_fa.jff` file.
+A draft version of the automaton is included in this folder in the `ofm_fa_norm.jff` file. The `ofm_fa.jff` is the old file and will probably be removed because it is somehow less practical and maybe even wrong.
 
 #### Alphabet set
 
