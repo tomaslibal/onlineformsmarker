@@ -36,4 +36,15 @@ Goes like
 
 ```
 (d, c) -> (c, c) -> (c, c) -> (c, c) -> (c, c) -> (c, a) -> (a, c) -> (c, c) -> (c, c) -> (c, a) -> (a, c) -> (c, c) -> (c, c) -> (c, c) -> (c, e)
-``` 
+```
+
+### Description
+
+Tokenizer:
+
+1. read the string
+3. scan the string
+4. tokenize it
+5. return a tree
+
+Parser:
