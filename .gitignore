@@ -3,8 +3,10 @@
 *.*#
 # ignore vim's swap files
 *.swp
-.DS_Store
 # ignore local node modules
 node_modules/
 # ignore SASS cache
 .sass-cache/
+# ignore meta folders
+.idea
+.DS_Store
