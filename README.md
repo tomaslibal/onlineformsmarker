@@ -1,17 +1,19 @@
-OnlineFormsMarker
-=================
+# OnlineFormsMarker
 
-This is a simple rendering app for a custom form markup syntax. It takes input in textual form (the form markup syntax) and renders a HTML output.
+This is a simple rendering app for a custom form markup syntax. It takes input 
+in textual form (the form markup syntax) and renders a HTML output.
 
-Example
--------------
+The main driver for the development of this package was to simplify the creation
+of HTML forms. With `onlineformsmarker` you can define the logical structure
+of the form separately from the HTML code.
+
+## Example
 
 ![Image showing an example of OnlineFormsMarker](http://libal.eu/imghost/ofm-example-01.jpg "Example of OnlineFormsMarker")
 <br>Input-as-text example demonstrating the basic syntax and use
 <br>Result in a web browser running on a local server (some CSS was used)
 
-Usage
-------
+## Usage
 
 Example usage:
 
@@ -26,8 +28,7 @@ echo \OFM\App\FormFactory::quick($string);
 ```
 
 
-Syntax
-------
+## Syntax
 
 ### Input
 
@@ -128,6 +129,23 @@ The class is located at onlineformsmarker/App/Form.php
 ### Getting new Form object using FormFactory
 
 You can request a new instance of Form using the FormFactory static methods `\OFM\App\FormFactory::create()` and `\OFM\App\FormFactory::quick($string)`.
+
+## Test
+
+To run the test suite you will need the dependencies from the requirements (see
+the next section). The suite is written in PHP and can be executed in a command
+  line environment or through a web server. With cli you can do:
+  
+    cd /path/to/onlineformsmarker/Test
+    php test.php
+    
+This should output the result of the tests.
+
+## Roadmap
+
+- 0.3: basic unicode support
+- 0.4: online rendering demo, improved docs
+- 0.5: test coverage report (possibly a PHPUnit framework)
 
 ## Requirements
 
