@@ -8,6 +8,7 @@ echo '<!DOCTYPE html>';
 <link rel="stylesheet" media="all" href="../Styles/Default/style.css">
 </head>
 <body>
+<div class="ofm-form">
 <?php
 
 require_once '../App/Form.php';
@@ -33,5 +34,6 @@ $myForm->action = 'sendTo.php';
 $myForm->loadString($testForm);
 echo $myForm;
 ?>
+</div>
 </body>
 </html>
