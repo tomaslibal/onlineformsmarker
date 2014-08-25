@@ -19,6 +19,7 @@ if(isset($_POST['foo'])) {
 <head>
 <meta charset="utf-8">
 <title>Online demo</title>
+<link rel="stylesheet" media="all" href="../Styles/Default/style.css">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing; border-box; -o-box-sizing: border-box; }
 html, body {
@@ -74,7 +75,7 @@ section.result {
     </div>
 </section>
 
-<section class="result">
+<section class="result ofm-form">
 </section>
 
 <script type="text/javascript">
