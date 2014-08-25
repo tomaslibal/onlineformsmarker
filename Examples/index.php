@@ -4,7 +4,7 @@ $files = scandir('.');                                        // read this dir a
 foreach($files as $file) {
   if(preg_match("/index.php/i", $file)) continue;             // skip the link to this file
   if(preg_match("/(\w.php$)/", $file))                        // accept only the files ending with .php
-    $htmlList .= "<li><a href=\"{$file}\">{$file}</a></li>";
+    $htmlList .= "<li><a href=\"/Examples/{$file}\">{$file}</a></li>";
 }
 $htmlList = preg_replace("/(.*)/is", '<ul>$1</ul>', $htmlList); // add the encompassing <ul> tags
 ?>
