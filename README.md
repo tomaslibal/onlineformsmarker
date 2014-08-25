@@ -144,7 +144,7 @@ This should output the result of the tests.
 ## Roadmap
 
 - 0.3: basic unicode support
-- 0.4: online rendering demo, improved docs
+- 0.4: online rendering demo (add styles, copy/paste buttons), improved docs
 - 0.5: test coverage report (possibly a PHPUnit framework)
 
 ## Requirements
