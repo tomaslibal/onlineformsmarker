@@ -19,14 +19,59 @@ if(isset($_POST['foo'])) {
 <head>
 <meta charset="utf-8">
 <title>Online demo</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; -ms-box-sizing; border-box; -o-box-sizing: border-box; }
+html, body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+body:after { content: " "; display: block; clear: both;}
+section {
+    float: left;
+    padding: 20px 10px;
+    width: 50%;
+    height: 100%;
+}
+section.form {
+}
+section.form textarea {
+    width: 100%;
+    min-height: 400px;
+}
+section.form button {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px 0;
+    display: block;
+}
+section.result {
+    background-color: #DCF2DC;
+}
+</style>
 </head>
 <body>
 
 <section class="form">
     <form id="input" action="online-demo.php" method="POST">
-        <textarea></textarea>
+        <textarea>
+(title Hello World)
+
+(input Your name)
+
+(input :password Your password)
+
+(button Register me)
+        </textarea>
         <button type="submit">RENDER</button>
     </form>
+    <div>
+        <p>Instructions</p>
+        <p>Type in the OFM syntax into the form and when done, click the
+        "render" button to see the result in the right-hand side of the screen.</p>
+    </div>
 </section>
 
 <section class="result">
