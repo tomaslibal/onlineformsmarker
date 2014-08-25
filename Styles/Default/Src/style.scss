@@ -1,7 +1,8 @@
 //
 //
 //
-form {
+.ofm-form {
+  form {
 
     // Layout
     box-sizing: border-box;
@@ -13,74 +14,77 @@ form {
     font-family: sans-serif;
 
     h1 {
-        margin: 0 10px 30px 10px;
+      margin: 0 10px 30px 10px;
     }
 
     label {
-        // Layout
-        clear:   left;
-        float:   left;
-        display: block;
-        margin:  20px 10px 10px;
-        // Dimensions
-        width:   180px;
-        // Properties
+      // Layout
+      clear: left;
+      float: left;
+      display: block;
+      margin: 20px 10px 10px;
+      // Dimensions
+      width: 180px;
+      // Properties
     }
 
     input {
-        // Layout
-        float:      left;
-        padding:    0 10px;
-        margin:     10px;
-        // Dimensions
-        min-height: 35px;
-        // Properties
-        border:     1px solid black;
-        font-size:  120%;
+      // Layout
+      float: left;
+      padding: 0 10px;
+      margin: 10px;
+      // Dimensions
+      min-height: 35px;
+      // Properties
+      border: 1px solid black;
+      font-size: 120%;
     }
 
     button {
-        // Layout
-        clear:   left;
-        display: block;
-        float:   left;
-        margin:  10px;
-        padding: 0 10px;
-        // Dimensions
-        height:  35px;
-        // Properties
-        cursor: pointer;
+      // Layout
+      clear: left;
+      display: block;
+      float: left;
+      margin: 10px;
+      padding: 0 10px;
+      // Dimensions
+      height: 35px;
+      // Properties
+      cursor: pointer;
     }
 
     textarea {
-        // Layout
-        float:      left;
-        margin:     10px;
-        // Dims
-        min-width:  270px;
-        min-height: 220px;
-        // Props
+      // Layout
+      float: left;
+      margin: 10px;
+      // Dims
+      min-width: 270px;
+      min-height: 220px;
+      // Props
     }
 
     select {
-        // Layout
-        float: left;
-        clear: left;
-        margin: 10px;
-        // Dims
-        min-width: 100px;
-        // Props
+      // Layout
+      float: left;
+      clear: left;
+      margin: 10px;
+      // Dims
+      min-width: 100px;
+      // Props
     }
 
     @media screen only and (min-width: 620px),
     screen only and (min-device-width: 620px) {
-        label, input, button { float: none; }
-        
-        label {
-            // Layout
-            margin-bottom: 0px;
-            // Dims
-            // Props
-        }
+      label, input, button {
+        float: none;
+      }
+
+      label {
+        // Layout
+        margin-bottom: 0px;
+        // Dims
+        // Props
+      }
     }
+  }
 }

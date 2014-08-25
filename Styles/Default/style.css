@@ -1,25 +1,25 @@
-form {
+.ofm-form form {
   box-sizing: border-box;
   margin: 20px 10px;
   overflow: hidden;
   width: 100%;
   font-family: sans-serif; }
-  form h1 {
+  .ofm-form form h1 {
     margin: 0 10px 30px 10px; }
-  form label {
+  .ofm-form form label {
     clear: left;
     float: left;
     display: block;
     margin: 20px 10px 10px;
     width: 180px; }
-  form input {
+  .ofm-form form input {
     float: left;
     padding: 0 10px;
     margin: 10px;
     min-height: 35px;
     border: 1px solid black;
     font-size: 120%; }
-  form button {
+  .ofm-form form button {
     clear: left;
     display: block;
     float: left;
@@ -27,18 +27,20 @@ form {
     padding: 0 10px;
     height: 35px;
     cursor: pointer; }
-  form textarea {
+  .ofm-form form textarea {
     float: left;
     margin: 10px;
     min-width: 270px;
     min-height: 220px; }
-  form select {
+  .ofm-form form select {
     float: left;
     clear: left;
     margin: 10px;
     min-width: 100px; }
   @media screen only and (min-width: 620px), screen only and (min-device-width: 620px) {
-    form label, form input, form button {
+    .ofm-form form label, .ofm-form form input, .ofm-form form button {
       float: none; }
-    form label {
+    .ofm-form form label {
       margin-bottom: 0px; } }
+
+/*# sourceMappingURL=style.css.map */
