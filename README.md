@@ -1,11 +1,16 @@
-# OnlineFormsMarker
+# Onlineformsmarker
 
-This is a simple rendering app for a custom form markup syntax. It takes input 
-in textual form (the form markup syntax) and renders a HTML output.
+Onlineformsmarker (or OFM) is a simple rendering software for a custom form
+markup syntax. It takes input in textual form (the form markup information) and
+renders a HTML output.
 
 The main driver for the development of this package was to simplify the creation
 of HTML forms. With `onlineformsmarker` you can define the logical structure
 of the form separately from the HTML code.
+
+The syntax is a regular language and therefore does not support nested
+structures. There's a [simple documentation](Docs/README.md) that explains
+the grammar and other characteristics of the language itself.
 
 ## Example
 
@@ -135,10 +140,10 @@ You can request a new instance of Form using the FormFactory static methods `\OF
 To run the test suite you will need the dependencies from the requirements (see
 the next section). The suite is written in PHP and can be executed in a command
   line environment or through a web server. With cli you can do:
-  
+
     cd /path/to/onlineformsmarker/Test
     php test.php
-    
+
 This should output the result of the tests.
 
 ## Roadmap
@@ -158,4 +163,4 @@ Versions:
 - May 22, 2013 v0.1-legacy
 
 Upcoming:
-- v0.3 will feature basic unicode support and general improvements (such as the FormFactory class) 
+- v0.3 will feature basic unicode support and general improvements (such as the FormFactory class)
