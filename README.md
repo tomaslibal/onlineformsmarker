@@ -8,7 +8,9 @@ The main driver for the development of this package was to simplify the creation
 of HTML forms. With `onlineformsmarker` you can define the logical structure
 of the form separately from the HTML code.
 
-The syntax is a regular language and therefore does not support nested
+## Documentation
+
+The syntax is a *regular language* and therefore does not support nested
 structures. There's a [simple documentation](Docs/README.md) that explains
 the grammar and other characteristics of the language itself.
 
