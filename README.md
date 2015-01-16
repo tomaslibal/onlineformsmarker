@@ -161,5 +161,6 @@ This should output the result of the tests.
 
 ------------------
 Versions:
+- Jan 16, 2015 v0.3
 - May 11, 2014 v0.2-pre
 - May 22, 2013 v0.1-legacy
