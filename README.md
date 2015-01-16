@@ -18,6 +18,12 @@ the grammar and other characteristics of the language itself.
 <br>Input-as-text example demonstrating the basic syntax and use
 <br>Result in a web browser running on a local server (some CSS was used)
 
+## Get it
+
+`git clone https://github.com/tomaslibal/onlineformsmarker.git` get it via git
+
+`mv onlineformsmarker /path/to/your/app/libs/onlineformsmarker` move to your project
+
 ## Usage
 
 Example usage:
@@ -146,12 +152,6 @@ the next section). The suite is written in PHP and can be executed in a command
 
 This should output the result of the tests.
 
-## Roadmap
-
-- 0.3: basic unicode support
-- 0.4: online rendering demo (add styles, copy/paste buttons), improved docs
-- 0.5: test coverage report (possibly a PHPUnit framework)
-
 ## Requirements
 
 - PHP 5 >= 5.3.0 (This is for the `namespace`)
@@ -161,6 +161,3 @@ This should output the result of the tests.
 Versions:
 - May 11, 2014 v0.2-pre
 - May 22, 2013 v0.1-legacy
-
-Upcoming:
-- v0.3 will feature basic unicode support and general improvements (such as the FormFactory class)
